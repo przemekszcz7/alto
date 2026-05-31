@@ -19,8 +19,15 @@ import CustomCursor from './components/CustomCursor';
 import CookieConsent from './components/CookieConsent';
 import Loader from './components/Loader';
 import { useSectionReveal } from './hooks/useSectionReveal';
+import { useHashRoute } from './hooks/useHashRoute';
+import BlogPage from './components/BlogPage';
+import AuditPage from './components/AuditPage';
+import PrivacyPage from './components/PrivacyPage';
+import TermsPage from './components/TermsPage';
 
 export default function App() {
+  const { currentRoute } = useHashRoute();
+  
   // Initialize section reveal observer
   useSectionReveal();
 
@@ -62,15 +69,23 @@ export default function App() {
       <Navbar />
       
       <main>
-        <Hero />
-        <PainPoints />
-        <WhyAlto />
-        <Services />
-        <Process />
-        <Industries />
-        <Portfolio />
-        <CTABanner />
-        <ContactForm />
+        {currentRoute === '/' && (
+          <>
+            <Hero />
+            <PainPoints />
+            <WhyAlto />
+            <Services />
+            <Process />
+            <Industries />
+            <Portfolio />
+            <CTABanner />
+            <ContactForm />
+          </>
+        )}
+        {currentRoute === '/blog' && <BlogPage />}
+        {currentRoute === '/audyt' && <AuditPage />}
+        {currentRoute === '/polityka-prywatnosci' && <PrivacyPage />}
+        {currentRoute === '/regulamin' && <TermsPage />}
       </main>
 
       <Footer />

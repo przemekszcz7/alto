@@ -1,4 +1,6 @@
+import React from 'react';
 import { Facebook, ArrowUpRight } from 'lucide-react';
+import { useHashRoute } from '../hooks/useHashRoute';
 
 const footerLinks = [
   {
@@ -7,16 +9,16 @@ const footerLinks = [
       { name: 'Strony WWW', href: '#uslugi' },
       { name: 'Pozycjonowanie', href: '#uslugi' },
       { name: 'Google Ads', href: '#uslugi' },
-      { name: 'Wizytówki Google', href: '#uslugi' },
+      { name: 'Narzędzia AI', href: '#uslugi' },
     ]
   },
   {
     title: 'Firma',
     links: [
-      { name: 'O nas', href: '#o-nas' },
+      { name: 'O nas', href: '/' },
       { name: 'Realizacje', href: '#realizacje' },
-      { name: 'Kariera', href: '#' },
-      { name: 'Blog', href: '#' },
+      { name: 'Audyt', href: '/audyt' },
+      { name: 'Blog', href: '/blog' },
     ]
   },
   {
@@ -31,12 +33,49 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const { currentRoute, navigate } = useHashRoute();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) {
+      return;
+    }
+
+    e.preventDefault();
+    if (href.startsWith('/')) {
+      navigate(href as any);
+      return;
+    }
+
+    // Anchor link (e.g. #realizacje)
+    if (currentRoute !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 450);
+    } else {
+      const element = document.getElementById(href.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-navy-dark border-t border-primary/20 pt-24 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center mb-8">
+            <a 
+              href="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/');
+              }}
+              className="flex items-center mb-8"
+            >
               <img 
                 src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png" 
                 alt="Alto - Kompleksowy marketing dla małych i średnich firm" 
@@ -59,7 +98,11 @@ export default function Footer() {
               <ul className="space-y-4">
                 {col.links.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-text-muted hover:text-primary transition-colors flex items-center group">
+                    <a 
+                      href={link.href} 
+                      onClick={(e) => handleLinkClick(e, link.href)}
+                      className="text-text-muted hover:text-primary transition-colors flex items-center group cursor-pointer"
+                    >
                       {link.name} 
                       {link.href.startsWith('http') || link.href.startsWith('mailto') ? (
                         <ArrowUpRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -75,8 +118,26 @@ export default function Footer() {
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-text-muted text-sm tracking-wide">
           <p>© 2026 Alto Agency. Wszystkie prawa zastrzeżone.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Polityka prywatności</a>
-            <a href="#" className="hover:text-white transition-colors">Regulamin</a>
+            <a 
+              href="/polityka-prywatnosci" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/polityka-prywatnosci');
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Polityka prywatności
+            </a>
+            <a 
+              href="/regulamin" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/regulamin');
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Regulamin
+            </a>
           </div>
         </div>
       </div>
