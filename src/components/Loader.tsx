@@ -23,8 +23,8 @@ export default function Loader() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
               src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png"
-              alt="Alto Logo"
-              className="h-48 md:h-72 w-auto object-contain"
+              alt="Alto - Nowoczesna agencja marketingowa dla Twojej firmy"
+              className="h-56 md:h-80 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.65)] saturate-[1.25]"
             />
             <motion.div
               initial={{ scaleX: 0 }}

@@ -39,8 +39,8 @@ export default function Footer() {
             <a href="#" className="flex items-center mb-8">
               <img 
                 src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png" 
-                alt="Alto Logo" 
-                className="h-28 w-auto object-contain"
+                alt="Alto - Kompleksowy marketing dla małych i średnich firm" 
+                className="h-36 md:h-40 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.55)] saturate-[1.25] transition-all duration-300 hover:scale-105"
               />
             </a>
             <p className="text-text-muted text-lg max-w-sm mb-10 leading-relaxed">

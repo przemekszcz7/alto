@@ -39,7 +39,7 @@ export default function Portfolio() {
               <div className="relative aspect-video overflow-hidden rounded-sm group bg-navy-light shadow-2xl">
                 <img 
                   src={project.image} 
-                  alt={project.title}
+                  alt={`Realizacja Alto: ${project.title} - ${project.desc} (${project.tag})`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
