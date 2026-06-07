@@ -7,6 +7,16 @@ import { createServer as createViteServer } from "vite";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Detect if we are running in production or development
+const isProduction =
+  process.env.NODE_ENV === "production" ||
+  (!process.argv.some(arg => arg.includes("server.ts")) &&
+   !process.argv.some(arg => arg.includes("dev")));
+
+if (isProduction) {
+  process.env.NODE_ENV = "production";
+}
+
 async function startServer() {
   const app = express();
   const PORT = 3000;
@@ -30,16 +40,19 @@ async function startServer() {
     app.use(
       "/assets",
       express.static(path.join(distPath, "assets"), {
-        maxAge: "1y",
+        maxAge: 31536000000, // 1 year in ms
         immutable: true,
         fallthrough: false,
+        setHeaders: (res) => {
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        },
       })
     );
 
     // Serve static files (HTML, favicon, manifest, assets in root) with special cache rules
     app.use(
       express.static(distPath, {
-        maxAge: "2h",
+        maxAge: 7200000, // 2h in ms
         setHeaders: (res, pathHeader) => {
           if (pathHeader.endsWith(".html")) {
             // HTML files must always revalidate to avoid serving stale layouts
@@ -47,6 +60,9 @@ async function startServer() {
           } else if (pathHeader.match(/\.(png|jpg|jpeg|gif|svg|ico|webp)$/)) {
             // Media assets can be safely cached for 30 days
             res.setHeader("Cache-Control", "public, max-age=2592000");
+          } else if (pathHeader.match(/\.(js|css)$/)) {
+            // Any other JS/CSS outside /assets can be cached for 1 year
+            res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
           }
         },
       })
