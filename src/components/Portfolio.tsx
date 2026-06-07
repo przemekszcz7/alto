@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Eye } from 'lucide-react';
 import image1 from '../assets/images/regenerated_image_1780824762703.jpg';
 import image2 from '../assets/images/regenerated_image_1780824763985.jpg';
 import image3 from '../assets/images/regenerated_image_1780824764645.jpg';
@@ -48,7 +49,7 @@ export default function Portfolio() {
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                    <div className="w-16 h-16 rounded-full bg-primary text-navy-dark flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
-                      <i className="fa-solid fa-eye text-2xl"></i>
+                      <Eye className="w-6 h-6" />
                    </div>
                 </div>
               </div>

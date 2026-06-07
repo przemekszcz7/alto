@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
+import { Laptop, Megaphone, Share2, Search, Zap } from 'lucide-react';
 
 const HubDiagram = () => {
   const nodes = [
-    { label: 'Strona WWW', icon: 'fa-laptop-code', x: 200, y: 50 },
-    { label: 'Reklamy', icon: 'fa-rectangle-ad', x: 350, y: 150 },
-    { label: 'Social Media', icon: 'fa-share-nodes', x: 300, y: 300 },
-    { label: 'Audyt', icon: 'fa-magnifying-glass', x: 100, y: 300 },
-    { label: 'Automatyzacje', icon: 'fa-bolt', x: 50, y: 150 },
+    { label: 'Strona WWW', icon: Laptop, x: 200, y: 50 },
+    { label: 'Reklamy', icon: Megaphone, x: 350, y: 150 },
+    { label: 'Social Media', icon: Share2, x: 300, y: 300 },
+    { label: 'Audyt', icon: Search, x: 100, y: 300 },
+    { label: 'Automatyzacje', icon: Zap, x: 50, y: 150 },
   ];
 
   return (
@@ -70,7 +71,7 @@ const HubDiagram = () => {
             <circle cx={node.x} cy={node.y} r="30" className="fill-navy-light stroke-white/20" strokeWidth="1" />
             <foreignObject x={node.x - 15} y={node.y - 15} width="30" height="30">
               <div className="w-full h-full flex items-center justify-center text-white/60">
-                <i className={`fa-solid ${node.icon} text-lg`}></i>
+                <node.icon className="w-5 h-5" />
               </div>
             </foreignObject>
             <text 

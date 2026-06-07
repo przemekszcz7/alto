@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { useHashRoute, getRouteFromPath } from '../hooks/useHashRoute';
+import navbarLogo from '../assets/images/regenerated_image_1780829676018.png';
 
 const links = [
   { name: 'Główna', href: '/' },
@@ -113,9 +114,10 @@ export default function Navbar() {
             navigate('/');
           }}
           className="flex items-center"
+          aria-label="Strona główna - Alto Agencja Marketingowa"
         >
           <img 
-            src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png" 
+            src={navbarLogo} 
             alt="Alto - Agencja marketingowa, pozycjonowanie, strony internetowe" 
             fetchPriority="high"
             className="h-32 md:h-36 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.55)] saturate-[1.25] transition-all duration-300 hover:scale-105"
@@ -147,6 +149,7 @@ export default function Navbar() {
         <button 
           className="md:hidden text-white hover:text-primary transition-colors cursor-pointer"
           onClick={() => setIsMobileMenuOpen(true)}
+          aria-label="Otwórz menu"
         >
           <Menu size={28} />
         </button>
@@ -173,6 +176,7 @@ export default function Navbar() {
               <button 
                 className="absolute top-8 right-8 text-white hover:text-primary cursor-pointer"
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Zamknij menu"
               >
                 <X size={32} />
               </button>

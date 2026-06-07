@@ -13,6 +13,7 @@ export default function PrivacyPage() {
         <button 
           onClick={() => navigate('/')}
           className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-text-muted hover:text-primary transition-colors mb-8 cursor-pointer bg-transparent border-none outline-none"
+          aria-label="Powrót do strony głównej"
         >
           <ArrowLeft size={14} />
           Powrót do strony głównej
@@ -55,8 +56,8 @@ export default function PrivacyPage() {
             <div className="bg-navy-light/10 border border-white/10 p-6 rounded-sm font-light space-y-2 max-w-md">
               <p><strong className="text-white font-medium">Firma:</strong> Alto Agencja Reklamowa</p>
               <p><strong className="text-white font-medium">Adres siedziby:</strong> Zielna 13, Kutno 99-300</p>
-              <p><strong className="text-white font-medium">E-mail:</strong> <a href="mailto:kontakt@altoagencja.pl" className="text-primary hover:underline">kontakt@altoagencja.pl</a></p>
-              <p><strong className="text-white font-medium">Telefon:</strong> <a href="tel:+48661552316" className="text-primary hover:underline">661 552 316</a></p>
+              <p><strong className="text-white font-medium">E-mail:</strong> <a href="mailto:kontakt@altoagencja.pl" aria-label="Wyślij e-mail do Administratora Danych Alto na adres kontakt@altoagencja.pl" className="text-primary hover:underline">kontakt@altoagencja.pl</a></p>
+              <p><strong className="text-white font-medium">Telefon:</strong> <a href="tel:+48661552316" aria-label="Zadzwoń do Administratora Danych Alto pod numer 661 552 316" className="text-primary hover:underline">661 552 316</a></p>
             </div>
             <p className="font-light pt-2">
               W sprawach związanych z ochroną danych osobowych można kontaktować się z nami pod powyższym adresem e-mail lub korespondencyjnie na adres siedziby.
@@ -227,10 +228,10 @@ export default function PrivacyPage() {
               <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Prawo cofnięcia zgody:</strong> Możesz cofnąć zgodę w dowolnym momencie</li>
             </ul>
             <p className="font-light pt-2">
-              Aby skorzystać z powyższych praw, prosimy o kontakt na adres e-mail: <a href="mailto:kontakt@altoagencja.pl" className="text-primary hover:underline">kontakt@altoagencja.pl</a>. Odpowiemy w terminie do 30 dni od otrzymania wniosku.
+              Aby skorzystać z powyższych praw, prosimy o kontakt na adres e-mail: <a href="mailto:kontakt@altoagencja.pl" aria-label="Napisz do nas na adres kontakt@altoagencja.pl w celu wykonania swoich praw wynikających z RODO" className="text-primary hover:underline">kontakt@altoagencja.pl</a>. Odpowiemy w terminie do 30 dni od otrzymania wniosku.
             </p>
             <p className="font-light">
-              Masz również prawo wniesienia skargi do organu nadzorczego – Prezesa Urzędu Ochrony Danych Osobowych (UODO), ul. Stawki 2, 00-193 Warszawa, e-mail: <a href="mailto:kancelaria@uodo.gov.pl" className="text-primary hover:underline">kancelaria@uodo.gov.pl</a>.
+              Masz również prawo wniesienia skargi do organu nadzorczego – Prezesa Urzędu Ochrony Danych Osobowych (UODO), ul. Stawki 2, 00-193 Warszawa, e-mail: <a href="mailto:kancelaria@uodo.gov.pl" aria-label="Napisz skargę do Urzędu Ochrony Danych Osobowych na adres kancelaria@uodo.gov.pl" className="text-primary hover:underline">kancelaria@uodo.gov.pl</a>.
             </p>
           </section>
 
@@ -275,9 +276,9 @@ export default function PrivacyPage() {
             </p>
             <div className="bg-navy-light/10 border border-white/10 p-6 rounded-sm font-light space-y-2 max-w-md">
               <p><strong className="text-white font-medium">Alto Agencja Reklamowa</strong></p>
-              <p><strong className="text-white font-medium">E-mail:</strong> <a href="mailto:kontakt@altoagencja.pl" className="text-primary hover:underline">kontakt@altoagencja.pl</a></p>
+              <p><strong className="text-white font-medium">E-mail:</strong> <a href="mailto:kontakt@altoagencja.pl" aria-label="Napisz maila do Alto Agencji Reklamowej na adres kontakt@altoagencja.pl" className="text-primary hover:underline">kontakt@altoagencja.pl</a></p>
               <p><strong className="text-white font-medium">Adres:</strong> Zielna 13, Kutno 99-300</p>
-              <p><strong className="text-white font-medium">Telefon:</strong> <a href="tel:+48661552316" className="text-primary hover:underline">661 552 316</a></p>
+              <p><strong className="text-white font-medium">Telefon:</strong> <a href="tel:+48661552316" aria-label="Zadzwoń do Alto Agencji Reklamowej pod numer 661 552 316" className="text-primary hover:underline">661 552 316</a></p>
             </div>
             <p className="font-light pt-2">
               Dokładamy wszelkich starań, aby odpowiadać na wszystkie zapytania w terminie do 30 dni.
@@ -295,6 +296,7 @@ export default function PrivacyPage() {
           <a 
             href="mailto:kontakt@altoagencja.pl" 
             className="ripple bg-primary hover:bg-[#B3933B] text-navy-dark px-6 py-3 rounded-sm font-medium text-sm flex items-center gap-2 cursor-pointer whitespace-nowrap transition-colors"
+            aria-label="Wyślij zapytanie mailowe do agencji w sprawach ochrony danych osobowych"
           >
             <Mail size={16} />
             Napisz do nas

@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react';
+
 export default function CTABanner() {
   return (
     <section className="py-32 bg-navy-dark relative overflow-hidden">
@@ -13,7 +15,7 @@ export default function CTABanner() {
               Ty zajmij się tym, co robisz najlepiej - <span className="text-white">my zadbamy o to, żeby świat się o tym dowiedział.</span>
             </p>
             <a href="#kontakt" className="btn-primary text-xl inline-flex items-center gap-3 ripple">
-              Darmowa konsultacja <i className="fa-solid fa-arrow-right"></i>
+              Darmowa konsultacja <ArrowRight size={20} />
             </a>
           </div>
 

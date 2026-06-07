@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
@@ -76,6 +76,7 @@ export default function ContactForm() {
             type="submit"
             disabled={status !== 'idle'}
             className="w-full btn-primary flex items-center justify-center gap-3 py-6 text-xl relative overflow-hidden disabled:opacity-70"
+            aria-label={status === 'loading' ? "Trwa wysyłanie wiadomości" : status === 'success' ? "Wiadomość została wysłana pomyślnie" : "Wyślij formularz kontaktowy"}
           >
             <AnimatePresence mode="wait">
               {status === 'idle' && (
@@ -97,7 +98,7 @@ export default function ContactForm() {
                   exit={{ y: -20, opacity: 0 }}
                   className="flex items-center gap-3"
                 >
-                  Wysyłanie... <i className="fa-solid fa-circle-notch animate-spin"></i>
+                  Wysyłanie... <Loader2 size={20} className="animate-spin" />
                 </motion.div>
               )}
               {status === 'success' && (

@@ -38,12 +38,14 @@ export default function CookieConsent() {
                    <button 
                     onClick={handleAccept}
                     className="flex-1 md:flex-none btn-primary py-3 px-8 text-sm"
+                    aria-label="Akceptuję wszystkie pliki cookie"
                    >
                      Akceptuję
                    </button>
                    <button 
                     onClick={() => navigate('/polityka-cookies')}
                     className="flex-1 md:flex-none btn-outline py-3 px-8 text-sm border-white/20 text-white hover:bg-white hover:text-navy-dark"
+                    aria-label="Dowiedz się więcej o polityce plików cookie"
                    >
                      Więcej info
                    </button>

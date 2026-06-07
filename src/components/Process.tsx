@@ -1,26 +1,27 @@
 import { useRef } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import { motion, useScroll, useSpring } from 'motion/react';
+import { MessageSquare, Compass, Rocket, LineChart } from 'lucide-react';
 
 const steps = [
   {
     title: 'Krótka rozmowa',
     desc: 'Poznajemy Twoje cele i bolączki. My pytamy, Ty odpowiadasz - bez zbędnego żargonu i skomplikowanych kwestionariuszy.',
-    icon: 'fa-solid fa-comments'
+    icon: MessageSquare
   },
   {
     title: 'Nasz plan działania',
     desc: 'Przygotowujemy strategię, która zadziała dla Twojej specyficznej branży. Ty ją akceptujesz, my zajmujemy się resztą.',
-    icon: 'fa-solid fa-compass'
+    icon: Compass
   },
   {
     title: 'Kompleksowe wdrożenie',
     desc: 'Budujemy stronę, ustawiamy reklamy i optymalizujemy wizytówki. Wszystko dzieje się w tle, abyś Ty mógł prowadzić biznes.',
-    icon: 'fa-solid fa-rocket'
+    icon: Rocket
   },
   {
     title: 'Regularny raport i zysk',
     desc: 'Dostajesz proste podsumowanie efektów. Widzisz realnych klientów i wzrost zainteresowania Twoją firmą. Bez owijania w bawełnę.',
-    icon: 'fa-solid fa-chart-line'
+    icon: LineChart
   }
 ];
 
@@ -72,7 +73,7 @@ export default function Process() {
                   index % 2 === 0 ? 'md:pr-16 md:text-right ml-16 md:ml-0' : 'md:pl-16 md:text-left ml-16 md:ml-0'
                 }`}>
                   <div className="inline-flex mb-4 p-3 bg-primary/10 text-primary rounded-sm">
-                    <i className={`${step.icon} text-xl`}></i>
+                    <step.icon className="w-5 h-5" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
                   <p className="text-text-muted text-lg leading-relaxed">

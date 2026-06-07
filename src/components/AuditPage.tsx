@@ -254,6 +254,7 @@ export default function AuditPage() {
                       type="submit"
                       disabled={isSubmitting}
                       className="ripple w-full bg-primary hover:bg-[#B3933B] text-navy-dark font-medium py-4 rounded-sm flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 text-base"
+                      aria-label={isSubmitting ? "Trwa wysyłanie zgłoszenia" : "Wyślij zgłoszenie o bezpłatny audyt marketingowy"}
                     >
                       {isSubmitting ? (
                         <>
@@ -287,6 +288,7 @@ export default function AuditPage() {
                     <button
                       onClick={() => setSubmitSuccess(false)}
                       className="text-primary hover:text-white transition-colors text-xs font-mono uppercase tracking-wider underline cursor-pointer"
+                      aria-label="Wyślij kolejne zgłoszenie audytowe"
                     >
                       Wyślij kolejne zgłoszenie
                     </button>

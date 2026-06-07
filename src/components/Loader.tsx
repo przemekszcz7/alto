@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
+import loaderLogo from '../assets/images/regenerated_image_1780829677406.png';
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,7 @@ export default function Loader() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png"
+              src={loaderLogo}
               alt="Alto - Nowoczesna agencja marketingowa dla Twojej firmy"
               fetchPriority="high"
               className="h-56 md:h-80 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.65)] saturate-[1.25]"

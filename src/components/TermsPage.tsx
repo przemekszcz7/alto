@@ -13,6 +13,7 @@ export default function TermsPage() {
         <button 
           onClick={() => navigate('/')}
           className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-text-muted hover:text-primary transition-colors mb-8 cursor-pointer bg-transparent border-none outline-none"
+          aria-label="Powrót do strony głównej"
         >
           <ArrowLeft size={14} />
           Powrót do strony głównej
@@ -68,6 +69,7 @@ export default function TermsPage() {
             <a 
               href="mailto:kontakt@altoagencja.pl" 
               className="ripple bg-primary hover:bg-[#B3933B] text-navy-dark px-6 py-3 rounded-sm font-medium text-sm flex items-center gap-2 cursor-pointer whitespace-nowrap transition-colors"
+              aria-label="Wyślij e-mail do Alto Agencja Reklamowa w sprawach regulaminowych na adres kontakt@altoagencja.pl"
             >
               <Mail size={16} />
               Skontaktuj się

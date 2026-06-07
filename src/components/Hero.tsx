@@ -68,10 +68,10 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a href="#uslugi" className="btn-primary w-full sm:w-auto ripple">
+          <a href="#uslugi" aria-label="Dowiedz się więcej o naszych usługach marketingowych" className="btn-primary w-full sm:w-auto ripple">
             Sprawdź jak pomożemy
           </a>
-          <a href="#kontakt" className="btn-outline w-full sm:w-auto ripple">
+          <a href="#kontakt" aria-label="Skontaktuj się z nami w celu zamówienia darmowej konsultacji" className="btn-outline w-full sm:w-auto ripple">
             Darmowa konsultacja
           </a>
         </div>
@@ -108,7 +108,7 @@ export default function Hero() {
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary opacity-50 transition-opacity hover:opacity-100"
       >
-        <a href="#uslugi">
+        <a href="#uslugi" aria-label="Przewiń stronę w dół do sekcji o oferowanych usługach marketingowych">
           <ArrowDown size={32} />
         </a>
       </motion.div>

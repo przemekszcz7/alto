@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, ArrowUpRight } from 'lucide-react';
 import { useHashRoute } from '../hooks/useHashRoute';
+import footerLogo from '../assets/images/regenerated_image_1780829676707.png';
 
 const footerLinks = [
   {
@@ -75,9 +76,10 @@ export default function Footer() {
                 navigate('/');
               }}
               className="flex items-center mb-8"
+              aria-label="Strona główna - Alto"
             >
               <img 
-                src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png" 
+                src={footerLogo} 
                 alt="Alto - Kompleksowy marketing dla małych i średnich firm" 
                 loading="lazy"
                 className="h-36 md:h-40 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.55)] saturate-[1.25] transition-all duration-300 hover:scale-105"
@@ -87,7 +89,13 @@ export default function Footer() {
               Profesjonalny marketing dla lokalnego biznesu. Pomagamy przedsiębiorcom rosnąć w sieci.
             </p>
             <div className="flex gap-6">
-              <a href="https://www.facebook.com/profile.php?id=61589679144799" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61589679144799" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all"
+                aria-label="Profil agencji Alto w serwisie Facebook"
+              >
                 <Facebook size={20} />
               </a>
             </div>
@@ -126,6 +134,7 @@ export default function Footer() {
                 navigate('/polityka-prywatnosci');
               }}
               className="hover:text-white transition-colors cursor-pointer"
+              aria-label="Zapoznaj się z Polityką Prywatności"
             >
               Polityka prywatności
             </a>
@@ -136,6 +145,7 @@ export default function Footer() {
                 navigate('/regulamin');
               }}
               className="hover:text-white transition-colors cursor-pointer"
+              aria-label="Zapoznaj się z Regulaminem Serwisu"
             >
               Regulamin
             </a>
