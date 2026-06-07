@@ -102,6 +102,7 @@ export default function Navbar() {
           <img 
             src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png" 
             alt="Alto - Agencja marketingowa, pozycjonowanie, strony internetowe" 
+            fetchPriority="high"
             className="h-32 md:h-36 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.55)] saturate-[1.25] transition-all duration-300 hover:scale-105"
           />
         </a>

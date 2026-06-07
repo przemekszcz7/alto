@@ -1,19 +1,22 @@
 import { motion } from 'motion/react';
 import { AlignLeft, ArrowLeft, Mail } from 'lucide-react';
+import { useHashRoute } from '../hooks/useHashRoute';
 
 export default function TermsPage() {
+  const { navigate } = useHashRoute();
+
   return (
     <div className="pt-32 pb-24 bg-navy-dark text-white font-body">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Back Link */}
-        <a 
-          href="#" 
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-text-muted hover:text-primary transition-colors mb-8 cursor-pointer"
+        <button 
+          onClick={() => navigate('/')}
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-text-muted hover:text-primary transition-colors mb-8 cursor-pointer bg-transparent border-none outline-none"
         >
           <ArrowLeft size={14} />
           Powrót do strony głównej
-        </a>
+        </button>
 
         {/* Title */}
         <div className="border-b border-white/5 pb-8 mb-12">
@@ -32,7 +35,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-heading text-white font-semibold mb-4">1. Zakres stosowania</h2>
             <p>
-              Niniejszy regulamin określa zasady korzystania z witryny internetowej <span className="text-white">alto.pl</span> oraz prawa i obowiązki użytkowników serwisu. Serwis ma charakter informacyjny i ma na celu zaprezentowanie portfolio usług agencji marketingowej Alto, ułatwienie kontaktu oraz składania zapytań o darmowe audyty początkowe.
+              Niniejszy regulamin określa zasady korzystania z witryny internetowej <span className="text-white">altoagencja.pl</span> oraz prawa i obowiązki użytkowników serwisu. Serwis ma charakter informacyjny i ma na celu zaprezentowanie portfolio usług agencji marketingowej Alto, ułatwienie kontaktu oraz składania zapytań o darmowe audyty początkowe.
             </p>
           </section>
 
@@ -57,14 +60,14 @@ export default function TermsPage() {
             </p>
           </section>
 
-          <section className="bg-navy-light/40 border border-white/5 rounded-lg p-6 md:p-8 mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <section className="border border-white/10 bg-navy-light/10 p-8 md:p-12 rounded-sm relative mt-16 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-lg font-heading text-white font-semibold mb-1">Masz dodatkowe zapytania prawne?</h3>
-              <p className="text-xs md:text-sm text-text-muted">Chętnie wyjaśnimy wszelkie punkty regulaminowe przed podpisaniem oficjalnej umowy o współpracę.</p>
+              <h3 className="text-lg font-heading text-white font-medium mb-1">Masz dodatkowe zapytania prawne?</h3>
+              <p className="text-xs md:text-sm text-text-muted font-light">Chętnie wyjaśnimy wszelkie punkty regulaminowe przed podpisaniem oficjalnej umowy o współpracę.</p>
             </div>
             <a 
-              href="mailto:hello@altoagency.pl" 
-              className="ripple bg-primary hover:bg-[#B3933B] text-navy-dark px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 cursor-pointer whitespace-nowrap"
+              href="mailto:kontakt@altoagencja.pl" 
+              className="ripple bg-primary hover:bg-[#B3933B] text-navy-dark px-6 py-3 rounded-sm font-medium text-sm flex items-center gap-2 cursor-pointer whitespace-nowrap transition-colors"
             >
               <Mail size={16} />
               Skontaktuj się

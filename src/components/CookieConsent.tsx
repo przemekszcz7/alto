@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useHashRoute } from '../hooks/useHashRoute';
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
+  const { navigate } = useHashRoute();
 
   useEffect(() => {
     const consent = localStorage.getItem('alto-cookie-consent');
@@ -39,7 +41,10 @@ export default function CookieConsent() {
                    >
                      Akceptuję
                    </button>
-                   <button className="flex-1 md:flex-none btn-outline py-3 px-8 text-sm border-white/20 text-white hover:bg-white hover:text-navy-dark">
+                   <button 
+                    onClick={() => navigate('/polityka-cookies')}
+                    className="flex-1 md:flex-none btn-outline py-3 px-8 text-sm border-white/20 text-white hover:bg-white hover:text-navy-dark"
+                   >
                      Więcej info
                    </button>
                 </div>

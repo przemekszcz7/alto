@@ -25,8 +25,8 @@ const footerLinks = [
     title: 'Kontakt',
     links: [
       { name: 'Formularz', href: '#kontakt' },
-      { name: 'hello@altoagency.pl', href: 'mailto:hello@altoagency.pl' },
-      { name: '+48 555 000 555', href: 'tel:+48555000555' },
+      { name: 'kontakt@altoagencja.pl', href: 'mailto:kontakt@altoagencja.pl' },
+      { name: '661 552 316', href: 'tel:+48661552316' },
       { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61589679144799' },
     ]
   }
@@ -79,6 +79,7 @@ export default function Footer() {
               <img 
                 src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png" 
                 alt="Alto - Kompleksowy marketing dla małych i średnich firm" 
+                loading="lazy"
                 className="h-36 md:h-40 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.55)] saturate-[1.25] transition-all duration-300 hover:scale-105"
               />
             </a>

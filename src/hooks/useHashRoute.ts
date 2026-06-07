@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export type RoutePath = '/' | '/blog' | '/audyt' | '/polityka-prywatnosci' | '/regulamin';
+export type RoutePath = '/' | '/blog' | '/audyt' | '/polityka-prywatnosci' | '/polityka-cookies' | '/regulamin';
 
 export function getRouteFromPath(): RoutePath {
   const path = window.location.pathname;
@@ -9,7 +9,7 @@ export function getRouteFromPath(): RoutePath {
   // Handle fallback hash routing if any user still uses those
   if (hash.startsWith('#/')) {
     const hashPath = hash.substring(1) as RoutePath;
-    const validRoutes: RoutePath[] = ['/', '/blog', '/audyt', '/polityka-prywatnosci', '/regulamin'];
+    const validRoutes: RoutePath[] = ['/', '/blog', '/audyt', '/polityka-prywatnosci', '/polityka-cookies', '/regulamin'];
     if (validRoutes.includes(hashPath)) {
       return hashPath;
     }
@@ -18,6 +18,7 @@ export function getRouteFromPath(): RoutePath {
   if (path.includes('/blog')) return '/blog';
   if (path.includes('/audyt')) return '/audyt';
   if (path.includes('/polityka-prywatnosci')) return '/polityka-prywatnosci';
+  if (path.includes('/polityka-cookies')) return '/polityka-cookies';
   if (path.includes('/regulamin')) return '/regulamin';
   
   return '/';
@@ -51,7 +52,7 @@ export function useHashRoute() {
 
     // If the first segment is not one of our routes, we assume it's a repository subpath (e.g., /alto-agency)
     const possibleRepoSeg = segments[0];
-    const systemSegs = ['blog', 'audyt', 'polityka-prywatnosci', 'regulamin', 'index.html'];
+    const systemSegs = ['blog', 'audyt', 'polityka-prywatnosci', 'polityka-cookies', 'regulamin', 'index.html'];
     
     if (possibleRepoSeg && !systemSegs.includes(possibleRepoSeg)) {
       targetPath = `/${possibleRepoSeg}${path === '/' ? '' : path}`;

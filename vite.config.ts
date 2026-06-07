@@ -23,6 +23,7 @@ export default defineConfig(({mode}) => {
           blog: path.resolve(__dirname, 'blog/index.html'),
           audyt: path.resolve(__dirname, 'audyt/index.html'),
           privacy: path.resolve(__dirname, 'polityka-prywatnosci/index.html'),
+          cookies: path.resolve(__dirname, 'polityka-cookies/index.html'),
           terms: path.resolve(__dirname, 'regulamin/index.html'),
         },
       },

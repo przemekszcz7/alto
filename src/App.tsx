@@ -23,6 +23,7 @@ import { useHashRoute } from './hooks/useHashRoute';
 import BlogPage from './components/BlogPage';
 import AuditPage from './components/AuditPage';
 import PrivacyPage from './components/PrivacyPage';
+import CookiesPage from './components/CookiesPage';
 import TermsPage from './components/TermsPage';
 
 export default function App() {
@@ -85,6 +86,7 @@ export default function App() {
         {currentRoute === '/blog' && <BlogPage />}
         {currentRoute === '/audyt' && <AuditPage />}
         {currentRoute === '/polityka-prywatnosci' && <PrivacyPage />}
+        {currentRoute === '/polityka-cookies' && <CookiesPage />}
         {currentRoute === '/regulamin' && <TermsPage />}
       </main>
 
