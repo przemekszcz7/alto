@@ -24,6 +24,7 @@ export default function Loader() {
               transition={{ duration: 1, ease: "easeOut" }}
               src="https://i.postimg.cc/wx0zC3F3/Minimalist-professional-logo-for-a-202605101222-Photoroom.png"
               alt="Alto - Nowoczesna agencja marketingowa dla Twojej firmy"
+              fetchPriority="high"
               className="h-56 md:h-80 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.65)] saturate-[1.25]"
             />
             <motion.div

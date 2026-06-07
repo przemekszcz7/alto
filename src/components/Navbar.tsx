@@ -22,25 +22,10 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
 
       const route = getRouteFromPath();
-      if (route === '/') {
-        const sections = ['uslugi', 'realizacje', 'o-nas', 'kontakt'];
-        let matched = false;
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 120 && rect.bottom >= 120) {
-              setActiveSection(section);
-              matched = true;
-              break;
-            }
-          }
-        }
-        if (!matched && window.scrollY < 200) {
-          setActiveSection('');
-        }
-      } else {
+      if (route !== '/') {
         setActiveSection(route);
+      } else if (window.scrollY < 200) {
+        setActiveSection('');
       }
     };
 
@@ -50,12 +35,42 @@ export default function Navbar() {
     // Call once on init
     handleScroll();
 
+    let observer: IntersectionObserver | null = null;
+    const route = getRouteFromPath();
+    if (route === '/' && 'IntersectionObserver' in window) {
+      const sections = ['uslugi', 'realizacje', 'o-nas', 'kontakt'];
+      const observerOptions = {
+        root: null,
+        // Match sections when they enter the main vertical region of the viewport
+        rootMargin: '-100px 0px -50% 0px',
+        threshold: 0,
+      };
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          observer?.observe(element);
+        }
+      });
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('popstate', handleScroll);
       window.removeEventListener('hashchange', handleScroll);
+      if (observer) {
+        observer.disconnect();
+      }
     };
-  }, []);
+  }, [currentRoute]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/')) {

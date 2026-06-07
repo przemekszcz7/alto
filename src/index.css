@@ -1,5 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Jost:wght@600&display=swap');
 @import "tailwindcss";
+
+/* System font fallback overrides with metric overrides to prevent Layout Shifts (CLS) */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  ascent-override: 99%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+  size-adjust: 97%;
+}
+
+@font-face {
+  font-family: "Playfair Display Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  ascent-override: 86%;
+  descent-override: 23%;
+  line-gap-override: 7%;
+  size-adjust: 104%;
+}
+
+@font-face {
+  font-family: "Jost Fallback";
+  src: local("Arial");
+  ascent-override: 97%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+  size-adjust: 101%;
+}
 
 @theme {
   --color-primary: #C9A84C;
@@ -8,9 +35,9 @@
   --color-text-muted: #A0AABF;
   --color-success: #2ECC71;
   
-  --font-heading: "Playfair Display", serif;
-  --font-body: "Inter", sans-serif;
-  --font-jost: "Jost", sans-serif;
+  --font-heading: "Playfair Display", "Playfair Display Fallback", serif;
+  --font-body: "Inter", "Inter Fallback", sans-serif;
+  --font-jost: "Jost", "Jost Fallback", sans-serif;
 }
 
 :root {
