@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
 
-export type RoutePath = '/' | '/blog' | '/audyt' | '/polityka-prywatnosci' | '/polityka-cookies' | '/regulamin';
+export type RoutePath = 
+  | '/' 
+  | '/blog' 
+  | '/audyt' 
+  | '/polityka-prywatnosci' 
+  | '/polityka-cookies' 
+  | '/regulamin'
+  | '/blog/jak-bez-budzetu-reklamowego-zwiekszyc-zasieg'
+  | '/blog/czy-twoja-strona-odstrasza-klientow'
+  | '/blog/ile-kosztuje-prowadzenie-social-mediow';
 
 export function getRouteFromPath(): RoutePath {
   const path = window.location.pathname;
@@ -9,12 +18,25 @@ export function getRouteFromPath(): RoutePath {
   // Handle fallback hash routing if any user still uses those
   if (hash.startsWith('#/')) {
     const hashPath = hash.substring(1) as RoutePath;
-    const validRoutes: RoutePath[] = ['/', '/blog', '/audyt', '/polityka-prywatnosci', '/polityka-cookies', '/regulamin'];
+    const validRoutes: RoutePath[] = [
+      '/', 
+      '/blog', 
+      '/audyt', 
+      '/polityka-prywatnosci', 
+      '/polityka-cookies', 
+      '/regulamin',
+      '/blog/jak-bez-budzetu-reklamowego-zwiekszyc-zasieg',
+      '/blog/czy-twoja-strona-odstrasza-klientow',
+      '/blog/ile-kosztuje-prowadzenie-social-mediow'
+    ];
     if (validRoutes.includes(hashPath)) {
       return hashPath;
     }
   }
 
+  if (path.includes('/blog/jak-bez-budzetu-reklamowego-zwiekszyc-zasieg')) return '/blog/jak-bez-budzetu-reklamowego-zwiekszyc-zasieg';
+  if (path.includes('/blog/czy-twoja-strona-odstrasza-klientow')) return '/blog/czy-twoja-strona-odstrasza-klientow';
+  if (path.includes('/blog/ile-kosztuje-prowadzenie-social-mediow')) return '/blog/ile-kosztuje-prowadzenie-social-mediow';
   if (path.includes('/blog')) return '/blog';
   if (path.includes('/audyt')) return '/audyt';
   if (path.includes('/polityka-prywatnosci')) return '/polityka-prywatnosci';

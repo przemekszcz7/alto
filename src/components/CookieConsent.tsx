@@ -31,8 +31,8 @@ export default function CookieConsent() {
           <div className="max-w-screen-xl mx-auto pointer-events-auto">
              <div className="bg-navy-light/95 backdrop-blur-xl border border-white/10 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl rounded-sm">
                 <p className="text-text-muted text-sm md:text-base max-w-2xl text-center md:text-left">
-                  Używamy plików cookie, aby zapewnić najlepsze doświadczenia na naszej stronie. 
-                  Korzystając ze strony, zgadzasz się na naszą politykę prywatności.
+                  Używamy plików cookie, aby zapewnić najlepsze doświadczenia na stronie. 
+                  Korzystając ze strony, wyrażasz zgodę na zasady polityki prywatności.
                 </p>
                 <div className="flex items-center gap-4 w-full md:w-auto">
                    <button 

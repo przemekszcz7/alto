@@ -2,27 +2,35 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CTABanner() {
   return (
-    <section className="py-32 bg-navy-dark relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="relative group overflow-hidden rounded-sm p-12 md:p-24 text-center">
-          {/* Background Glow */}
-          <div className="absolute inset-0 bg-navy-light z-0" />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 z-0 animate-pulse" />
+    <section className="py-24 bg-navy-light relative overflow-hidden border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
+        {/* Minimalist, solid board layout */}
+        <div className="relative group border border-white/15 bg-navy-dark/40 p-12 md:p-20 rounded-sm">
           
-          <div className="relative z-10 max-w-3xl mx-auto section-reveal">
-            <h2 className="text-4xl md:text-7xl font-bold mb-8 italic">Odzyskaj swój czas.</h2>
-            <p className="text-xl md:text-2xl text-text-muted mb-12">
-              Ty zajmij się tym, co robisz najlepiej - <span className="text-white">my zadbamy o to, żeby świat się o tym dowiedział.</span>
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <span className="text-[#C9A84C] font-mono text-xs uppercase tracking-widest font-semibold block mb-6">
+              / Twój marketing może pracować poprawnie
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading font-semibold mb-8 text-white leading-tight">
+              Odzyskaj swój czas.<br />
+              <span className="italic font-normal text-[#C9A84C]">My zajmiemy się resztą.</span>
+            </h2>
+            <p className="text-[#5C6B84] text-lg md:text-xl font-light font-body max-w-2xl mx-auto mb-12 leading-relaxed">
+              Ty zajmij się tym, co robisz najlepiej — świadczeniem usług i budowaniem zespołu. My weźmiemy pełną, codzienną odpowiedzialność za to, by świat dowiedział się o Twojej firmie.
             </p>
-            <a href="#kontakt" className="btn-primary text-xl inline-flex items-center gap-3 ripple">
-              Darmowa konsultacja <ArrowRight size={20} />
+            
+            <a href="#kontakt" className="btn-primary text-lg inline-flex items-center gap-3 ripple">
+              Ustal termin darmowej konsultacji <ArrowRight size={18} />
             </a>
           </div>
 
-          {/* Decorative shapes */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 border-2 border-primary/20 rounded-full group-hover:scale-150 transition-transform duration-1000"></div>
-          <div className="absolute -bottom-10 -left-10 w-60 h-60 border-2 border-primary/10 rounded-full group-hover:scale-125 transition-transform duration-1000"></div>
+          {/* Solid premium branding indicator in background */}
+          <div className="absolute right-4 bottom-4 font-heading text-8xl font-black text-white/[0.02] select-none leading-none pointer-events-none">
+            ALTO
+          </div>
         </div>
+
       </div>
     </section>
   );

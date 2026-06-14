@@ -77,8 +77,10 @@ export default function CustomCursor() {
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference"
         style={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
+          x: mousePosition.x,
+          y: mousePosition.y,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
       />
       {/* Larger circle */}
@@ -89,8 +91,10 @@ export default function CustomCursor() {
           backgroundColor: isHovering ? 'rgba(201, 168, 76, 0.1)' : 'transparent',
         }}
         style={{
-          x: cursorX.get() - 16,
-          y: cursorY.get() - 16,
+          x: cursorX,
+          y: cursorY,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
       />
     </>

@@ -1,115 +1,116 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowDown } from 'lucide-react';
 
-export default function Hero() {
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+const WORDS = [
+  'cały Twój marketing w sieci.',
+  'projektowanie nowoczesnych stron WWW.',
+  'skuteczne kampanie Google & Meta Ads.',
+  'lokalne pozycjonowanie SEO i wizytówki.',
+  'stałe pozyskiwanie nowych klientów.'
+];
 
-  const phrases = ["Ty prowadzisz biznes.", "My zajmujemy się resztą."];
+export default function Hero() {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const fullWord = WORDS[currentWordIndex];
+
     const handleType = () => {
-      const i = loopNum % phrases.length;
-      const fullText = phrases[i];
-
-      setDisplayText(isDeleting 
-        ? fullText.substring(0, displayText.length - 1) 
-        : fullText.substring(0, displayText.length + 1)
-      );
-
-      setTypingSpeed(isDeleting ? 30 : 150);
-
-      if (!isDeleting && displayText === fullText) {
-        setTimeout(() => setIsDeleting(true), 2500);
-      } else if (isDeleting && displayText === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
+      if (!isDeleting) {
+        // Typing characters
+        setCurrentText((prev) => fullWord.substring(0, prev.length + 1));
+        
+        if (currentText === fullWord) {
+          // Pause when word is fully typed
+          timer = setTimeout(() => setIsDeleting(true), 2200);
+          return;
+        }
+      } else {
+        // Deleting characters
+        setCurrentText((prev) => fullWord.substring(0, prev.length - 1));
+        
+        if (currentText === '') {
+          // Move to next word when deleted
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % WORDS.length);
+          timer = setTimeout(() => {}, 400);
+          return;
+        }
       }
+
+      const speed = isDeleting ? 30 : 60;
+      timer = setTimeout(handleType, speed);
     };
 
-    const timer = setTimeout(handleType, typingSpeed);
+    timer = setTimeout(handleType, isDeleting ? 30 : 60);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, loopNum, typingSpeed]);
+  }, [currentText, isDeleting, currentWordIndex]);
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-navy-dark">
-      {/* Animated Background Blobs */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          animate={{
-            x: [0, 100, -50, 0],
-            y: [0, 50, 100, 0],
-            scale: [1, 1.2, 1, 1],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 50, 0],
-            y: [0, -50, -100, 0],
-            scale: [1, 1.1, 0.9, 1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] bg-navy-light/40 rounded-full blur-[150px]"
-        />
-      </div>
-
-      <div className="relative z-10 text-center px-6">
-        <h1 className="text-4xl md:text-8xl font-black mb-8 leading-[1.1]">
-          <span className="block h-[2.2em] md:h-auto">{displayText}<span className="typewriter-cursor"></span></span>
-        </h1>
+    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-navy-dark border-b border-white/10 pt-16">
+      {/* Absolute background accent */}
+      <div className="absolute inset-0 bg-radial-gradient from-navy-light/10 via-transparent to-transparent opacity-60 pointer-events-none" />
+      
+      <div className="max-w-5xl mx-auto px-6 md:px-12 w-full flex flex-col items-center text-center relative z-10">
         
-        <p className="text-text-muted text-lg md:text-2xl max-w-3xl mx-auto mb-12 font-medium tracking-wide">
-          Cały marketing w jednym miejscu - <span className="text-white">dla małych firm, które myślą poważnie.</span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a href="#uslugi" aria-label="Dowiedz się więcej o naszych usługach marketingowych" className="btn-primary w-full sm:w-auto ripple">
-            Sprawdź jak pomożemy
+        {/* Main Header Title with high-contrast typewriter effect */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-4xl md:text-7xl font-semibold mb-8 text-white leading-tight tracking-tight font-heading max-w-4xl min-h-[160px] md:min-h-[290px]"
+        >
+          Ty prowadzisz biznes. <br />
+          <span className="italic font-normal text-[#C9A84C]">My bierzemy na siebie</span> <br />
+          <span className="text-[#C9A84C] relative inline-block text-3xl md:text-6xl min-h-[1.2em] pt-2">
+            {currentText}
+            <span className="typewriter-cursor ml-1 inline-block h-[0.9em] align-middle w-[2px]"></span>
+          </span>
+        </motion.h1>
+        
+        {/* Descriptive intro paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-[#5C6B84] text-lg md:text-xl font-body max-w-2xl mb-12 leading-relaxed font-light"
+        >
+          Kompleksowa obsługa marketingu dla lokalnych liderów i ambitnych firm. Bez drogich pośredników, bez lania wody i rozproszonych agencji. Tworzymy strony, budujemy widoczność i dostarczamy realnych klientów.
+        </motion.p>
+        
+        {/* Interactive CTA buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto"
+        >
+          <a href="#uslugi" aria-label="Zobacz zakres oferowanych usług" className="btn-primary text-center ripple min-w-[200px]">
+            Zobacz zakres usług
           </a>
-          <a href="#kontakt" aria-label="Skontaktuj się z nami w celu zamówienia darmowej konsultacji" className="btn-outline w-full sm:w-auto ripple">
-            Darmowa konsultacja
+          <a href="#kontakt" aria-label="Skonsultuj działania marketingowe" className="btn-outline text-center ripple min-w-[200px]">
+            Porozmawiaj o współpracy
           </a>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Floating particles (simplified CSS version) */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * 100 + '%', 
-              y: Math.random() * 100 + '%',
-              opacity: Math.random()
-            }}
-            animate={{ 
-              y: [null, '-20%', '120%'],
-              opacity: [null, 0.5, 0]
-            }}
-            transition={{ 
-              duration: Math.random() * 10 + 10, 
-              repeat: Infinity,
-              ease: "linear",
-              delay: Math.random() * 5
-            }}
-            className="absolute w-1 h-1 bg-primary rounded-full"
-          />
-        ))}
-      </div>
+      {/* Decorative vertical divider lines to add structural control */}
+      <div className="absolute right-12 top-0 bottom-0 w-[1px] bg-white/[0.03] hidden xl:block pointer-events-none" />
+      <div className="absolute left-12 top-0 bottom-0 w-[1px] bg-white/[0.03] hidden xl:block pointer-events-none" />
 
-      {/* Scroll Down Arrow */}
+      {/* Centered Scroll Down Indicator */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary opacity-50 transition-opacity hover:opacity-100"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#C9A84C] opacity-60 hover:opacity-100 transition-opacity hidden md:flex items-center gap-3 text-xs uppercase tracking-widest font-mono cursor-pointer"
       >
-        <a href="#uslugi" aria-label="Przewiń stronę w dół do sekcji o oferowanych usługach marketingowych">
-          <ArrowDown size={32} />
+        <a href="#uslugi" className="flex items-center gap-2">
+          <span>Przewiń, aby poznać ofertę</span>
+          <ArrowDown size={14} />
         </a>
       </motion.div>
     </section>

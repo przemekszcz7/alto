@@ -10,7 +10,7 @@ const footerLinks = [
       { name: 'Strony WWW', href: '#uslugi' },
       { name: 'Pozycjonowanie', href: '#uslugi' },
       { name: 'Google Ads', href: '#uslugi' },
-      { name: 'Narzędzia AI', href: '#uslugi' },
+      { name: 'Social Media', href: '#uslugi' },
     ]
   },
   {
@@ -82,7 +82,7 @@ export default function Footer() {
                 src={footerLogo} 
                 alt="Alto - Kompleksowy marketing dla małych i średnich firm" 
                 loading="lazy"
-                className="h-36 md:h-40 w-auto object-contain brightness-[1.65] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.55)] saturate-[1.25] transition-all duration-300 hover:scale-105"
+                className="h-36 md:h-40 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.3)] saturate-[1.25] transition-all duration-300 hover:scale-105"
               />
             </a>
             <p className="text-text-muted text-lg max-w-sm mb-10 leading-relaxed">
@@ -137,6 +137,17 @@ export default function Footer() {
               aria-label="Zapoznaj się z Polityką Prywatności"
             >
               Polityka prywatności
+            </a>
+            <a 
+              href="/polityka-cookies" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/polityka-cookies');
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+              aria-label="Zapoznaj się z Polityką Cookies"
+            >
+              Polityka cookies
             </a>
             <a 
               href="/regulamin" 

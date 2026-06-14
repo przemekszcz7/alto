@@ -127,7 +127,7 @@ export default function AuditPage() {
               Zyskaj unikalny plan działania dla swojego biznesu
             </h2>
             <p className="text-text-muted text-sm md:text-base leading-relaxed mb-12 font-light">
-              Nasz audyt to nie jest automatyczny raport wypluwany przez gotowy program. To rzetelna, manualna analiza wykonana przez naszych ekspertów, którzy sprawdzają każdy aspekt Twojej witryny, profili i lejka sprzedażowego.
+              Dostarczany audyt nie jest kolejnym automatycznym raportem wypluwanym przez gotowy program. To w pełni manualna, rzetelna analiza, podczas której weryfikowany jest każdy aspekt Twojej witryny, profili i lejka sprzedażowego.
             </p>
 
             <div className="space-y-8 pl-1">

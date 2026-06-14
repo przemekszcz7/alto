@@ -222,12 +222,12 @@ export default function CookiesPage() {
         <section className="border border-white/10 bg-navy-light/10 p-8 md:p-12 rounded-sm relative mt-16 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-lg font-heading text-white font-medium mb-1">Potrzebujesz więcej informacji?</h3>
-            <p className="text-xs md:text-sm text-text-muted font-light">Skontaktuj się bezpośrednio z naszym zespołem do spraw bezpieczeństwa danych.</p>
+            <p className="text-xs md:text-sm text-text-muted font-light">Skontaktuj się bezpośrednio w sprawach związanych z ochroną danych.</p>
           </div>
           <a 
             href="mailto:kontakt@altoagencja.pl" 
             className="ripple bg-primary hover:bg-[#B3933B] text-navy-dark px-6 py-3 rounded-sm font-medium text-sm flex items-center gap-2 cursor-pointer whitespace-nowrap transition-colors"
-            aria-label="Napisz do naszej agencji w sprawach polityki cookies"
+            aria-label="Skontaktuj się w sprawach polityki cookies"
           >
             <Mail size={16} />
             Napisz do nas

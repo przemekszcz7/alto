@@ -1,130 +1,127 @@
 import { motion } from 'motion/react';
-import { Laptop, Megaphone, Share2, Search, Zap } from 'lucide-react';
-
-const HubDiagram = () => {
-  const nodes = [
-    { label: 'Strona WWW', icon: Laptop, x: 200, y: 50 },
-    { label: 'Reklamy', icon: Megaphone, x: 350, y: 150 },
-    { label: 'Social Media', icon: Share2, x: 300, y: 300 },
-    { label: 'Audyt', icon: Search, x: 100, y: 300 },
-    { label: 'Automatyzacje', icon: Zap, x: 50, y: 150 },
-  ];
-
-  return (
-    <div className="relative w-full max-w-[500px] aspect-square mx-auto my-20">
-      <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible">
-        {/* Lines with gold pulse */}
-        {nodes.map((node, i) => (
-          <g key={`line-${i}`}>
-            <line
-              x1="200"
-              y1="200"
-              x2={node.x}
-              y2={node.y}
-              className="stroke-white/10"
-              strokeWidth="1"
-            />
-            <motion.line
-              x1="200"
-              y1="200"
-              x2={node.x}
-              y2={node.y}
-              stroke="#D4AF37"
-              strokeWidth="2"
-              strokeDasharray="4 4"
-              initial={{ strokeDashoffset: 0, opacity: 0 }}
-              animate={{ 
-                strokeDashoffset: -20,
-                opacity: [0.2, 0.8, 0.2]
-              }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 2, 
-                ease: "linear",
-                delay: i * 0.4
-              }}
-            />
-          </g>
-        ))}
-
-        {/* Central Node */}
-        <g className="filter drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">
-          <circle cx="200" cy="200" r="45" className="fill-navy-dark stroke-primary" strokeWidth="2" />
-          <text 
-            x="200" 
-            y="208" 
-            textAnchor="middle" 
-            className="fill-primary font-black text-xl tracking-tighter"
-          >
-            ALTO
-          </text>
-        </g>
-
-        {/* Outer Nodes */}
-        {nodes.map((node, i) => (
-          <motion.g 
-            key={`node-${i}`}
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ delay: 0.2 + i * 0.1, type: 'spring' }}
-          >
-            <circle cx={node.x} cy={node.y} r="30" className="fill-navy-light stroke-white/20" strokeWidth="1" />
-            <foreignObject x={node.x - 15} y={node.y - 15} width="30" height="30">
-              <div className="w-full h-full flex items-center justify-center text-white/60">
-                <node.icon className="w-5 h-5" />
-              </div>
-            </foreignObject>
-            <text 
-              x={node.x} 
-              y={node.y + 45} 
-              textAnchor="middle" 
-              className="fill-text-muted text-[10px] font-bold uppercase tracking-widest"
-            >
-              {node.label}
-            </text>
-          </motion.g>
-        ))}
-      </svg>
-    </div>
-  );
-};
+import { ShieldCheck, Receipt, Eye } from 'lucide-react';
 
 export default function WhyAlto() {
+  const comparison = {
+    pain: [
+      { text: "Rozmowy z osobnym programistą, grafikiem i copywriterem" },
+      { text: "Pilnowanie oraz płacenie 5 różnych faktur co miesiąc" },
+      { text: "Brak spójności — każdy realizuje własną wizję" },
+      { text: "Zrzucanie winy: 'strona wolna, bo reklamy są źle ustawione'" },
+    ],
+    alto: [
+      { text: "Jeden stały opiekun koordynujący wszystkie działania" },
+      { text: "Pojedyncza przejrzysta faktura abonamentowa" },
+      { text: "Pełna spójność wizualna i strategiczna całej marki" },
+      { text: "Pełna, bezdyskusyjna odpowiedzialność za wyniki w sieci" },
+    ]
+  };
+
   return (
-    <section className="py-32 bg-navy-light/40 relative border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="section-reveal mb-12 text-center max-w-3xl mx-auto">
-          <span className="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-6 block">- NASZE ROZWIĄZANIE</span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Jeden partner. Cały marketing. Zero chaosu.</h2>
+    <section className="py-24 bg-navy-dark relative border-y border-white/10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
+        {/* Header Column */}
+        <div className="mb-20 max-w-3xl">
+          <span className="text-[#C9A84C] font-mono text-xs uppercase tracking-widest font-semibold block mb-4">
+            / Dlaczego konsolidacja ma sens
+          </span>
+          <h2 className="text-4xl md:text-6xl font-heading font-semibold text-white leading-tight">
+            Jeden partner. <br />
+            Cały marketing. <span className="italic font-normal text-[#C9A84C]">Zero chaosu.</span>
+          </h2>
         </div>
 
-        <HubDiagram />
+        {/* Dynamic, non-equal comparison grids (Asymmetrical layout break) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mb-24">
+          
+          {/* Fragmented approach side (Slightly smaller, muted) */}
+          <div className="lg:col-span-5 p-8 border border-white/5 bg-navy-light/20 flex flex-col justify-between">
+            <div>
+              <h3 className="font-heading text-lg font-medium text-text-muted/80 uppercase tracking-wider mb-6 pb-4 border-b border-white/10">
+                Podejście rozproszone
+              </h3>
+              <ul className="space-y-5">
+                {comparison.pain.map((item, idx) => (
+                  <li key={idx} className="flex gap-4 items-start text-sm text-text-muted/70 font-light font-body leading-relaxed">
+                    <span className="text-red-500 font-mono mt-0.5 font-bold">✕</span>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <p className="mt-8 text-xs text-text-muted/50 font-mono italic">
+              * Powoduje frustrację, stratę budżetu i marnowanie Twojego czasu.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20">
-          <div className="section-reveal flex flex-col items-center text-center">
-            <div className="mb-6 text-3xl">🛡️</div>
-            <h3 className="text-2xl font-bold mb-4">Jeden opiekun</h3>
-            <p className="text-text-muted leading-relaxed">
-              Jedna osoba zna Twój biznes od A do Z. Nie tłumaczysz wszystkiego od nowa za każdym razem.
+          {/* Alto approach side (Larger, accented, high contrast) */}
+          <div className="lg:col-span-7 p-10 border-2 border-[#C9A84C] bg-navy-light/50 flex flex-col justify-between shadow-[0_15px_40px_rgba(201,168,76,0.06)] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#C9A84C]/5 rounded-full blur-2xl"></div>
+            
+            <div>
+              <h3 className="font-heading text-xl font-medium text-[#C9A84C] uppercase tracking-wider mb-6 pb-4 border-b border-[#C9A84C]/25">
+                Model współpracy Alto
+              </h3>
+              <ul className="space-y-6">
+                {comparison.alto.map((item, idx) => (
+                  <li key={idx} className="flex gap-4 items-start text-base text-white font-light font-body leading-relaxed">
+                    <span className="text-[#C9A84C] font-mono mt-1 font-bold">✓</span>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p className="mt-10 text-xs text-[#C9A84C]/80 font-mono uppercase tracking-widest font-semibold">
+              * Skoncentrowane uderzenie w rynek — spójnie i bez taryfy ulgowej.
             </p>
           </div>
           
-          <div className="section-reveal flex flex-col items-center text-center">
-            <div className="mb-6 text-3xl">📋</div>
-            <h3 className="text-2xl font-bold mb-4">Jeden rachunek</h3>
-            <p className="text-text-muted leading-relaxed">
-              Koniec z fakturami od 5 różnych firm. Wszystko w jednym miejscu, jedna płatność miesięcznie.
+        </div>
+
+        {/* Benefits Cards but with completely different look, asymmetric spacing, zero emojis */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10">
+          
+          <div className="flex flex-col items-start p-6">
+            <div className="w-12 h-12 rounded-sm border border-[#C9A84C]/20 bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
+              <ShieldCheck size={22} />
+            </div>
+            <h4 className="font-heading text-lg font-medium text-white mb-3">
+              Jeden opiekun projektu
+            </h4>
+            <p className="text-[#5C6B84] text-sm font-light leading-relaxed font-body">
+              Masz bezpośredni telefon do lidera projektu, który zna Twój biznes od podszewki. Żadnych infolinii, żadnych automatycznych botów, zero przekazywania spraw do dziesięciu innych osób.
             </p>
           </div>
 
-          <div className="section-reveal flex flex-col items-center text-center">
-            <div className="mb-6 text-3xl">📊</div>
-            <h3 className="text-2xl font-bold mb-4">Pełna przejrzystość</h3>
-            <p className="text-text-muted leading-relaxed">
-              Miesięczny raport w prostym języku. Zawsze wiesz co robimy i jakie są efekty.
+          <div className="flex flex-col items-start p-6 md:border-l border-white/10">
+            <div className="w-12 h-12 rounded-sm border border-[#C9A84C]/20 bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
+              <Receipt size={22} />
+            </div>
+            <h4 className="font-heading text-lg font-medium text-white mb-3">
+              Jeden przejrzysty rachunek
+            </h4>
+            <p className="text-[#5C6B84] text-sm font-light leading-relaxed font-body">
+              Płacisz jedną stałą, wcześniej uzgodnioną kwotę abonamentu miesięcznego. Łatwo planujesz budżet swojej firmy, a księgowość rozlicza tylko jedną, prostą fakturę zamiast sterty drobnych rachunków.
             </p>
           </div>
+
+          <div className="flex flex-col items-start p-6 md:border-l border-white/10">
+            <div className="w-12 h-12 rounded-sm border border-[#C9A84C]/20 bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
+              <Eye size={22} />
+            </div>
+            <h4 className="font-heading text-lg font-medium text-white mb-3">
+              Absolutna przejrzystość
+            </h4>
+            <p className="text-[#5C6B84] text-sm font-light leading-relaxed font-body">
+              Dostarczamy comiesięczne, rzetelne podsumowania w formie ludzkiej rozmowy i jasnych wniosków. Rozmawiamy o telefonach od klientów i sprzedaży, a nie o skomplikowanych wskaźnikach technicznych.
+            </p>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

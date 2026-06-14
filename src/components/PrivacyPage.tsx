@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-heading text-white font-normal mb-4 border-b border-white/5 pb-2">1. Informacje ogólne</h2>
             <p className="font-light">
-              Niniejsza Polityka Prywatności określa zasady gromadzenia, przetwarzania i wykorzystywania danych osobowych Użytkowników strony internetowej prowadzonej przez Alto Agencja Reklamowa oraz klientów korzystających z naszych usług reklamowych i marketingowych.
+              Niniejsza Polityka Prywatności określa zasady gromadzenia, przetwarzania i wykorzystywania danych osobowych Użytkowników strony internetowej prowadzonej przez Alto Agencja Reklamowa oraz klientów korzystających z oferowanych usług reklamowych i marketingowych.
             </p>
             <p className="font-light">
               Dokładamy wszelkich starań, aby Twoje dane osobowe były przetwarzane zgodnie z obowiązującymi przepisami prawa, w szczególności z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-heading text-white font-normal mb-4 border-b border-white/5 pb-2">3. Jakie dane zbieramy?</h2>
             <p className="font-light">
-              W zależności od sposobu kontaktu i korzystania z naszych usług możemy przetwarzać następujące kategorie danych:
+              W zależności od sposobu kontaktu i korzystania z oferowanych usług można przetwarzać następujące kategorie danych:
             </p>
             
             <div className="space-y-6 pt-2">
@@ -252,10 +252,10 @@ export default function PrivacyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-heading text-white font-normal mb-4 border-b border-white/5 pb-2">10. Newsletter i komunikacja marketingowa</h2>
             <p className="font-light">
-              Jeśli zapisałeś/aś się na nasz newsletter lub wyraziłeś/aś zgodę na komunikację marketingową, będziemy przesyłać Ci informacje o naszych usługach, promocjach i aktualnościach z branży reklamowej.
+              W przypadku zapisania się na newsletter lub wyrażenia zgody na komunikację marketingową, przesyłane będą informacje o oferowanych usługach, promocjach i aktualnościach z branży reklamowej.
             </p>
             <p className="font-light">
-              Możesz zrezygnować z newslettera w dowolnym momencie, klikając link rezygnacji w treści wiadomości lub wysyłając prośbę na nasz adres e-mail. Rezygnacja jest natychmiastowa i bezpłatna.
+              Można zrezygnować z newslettera w dowolnym momencie, klikając link rezygnacji w treści wiadomości lub wysyłając prośbę pod kontaktowy adres e-mail. Rezygnacja jest natychmiastowa i bezpłatna.
             </p>
           </section>
 

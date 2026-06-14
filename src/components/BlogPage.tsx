@@ -1,40 +1,16 @@
 import { motion, useScroll, useSpring } from 'motion/react';
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { useHashRoute } from '../hooks/useHashRoute';
+import { BLOG_POSTS } from '../data/blogPosts';
 
 export default function BlogPage() {
   const { scrollYProgress } = useScroll();
+  const { navigate } = useHashRoute();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-
-  const upcomingPosts = [
-    {
-      title: "Jak bez budżetu reklamowego zwiększyć zasięg lokalnej firmy na Facebooku w 2026 roku?",
-      category: "Social Media",
-      readTime: "6 min czytania",
-      date: "Czerwiec 2026",
-      desc: "Przewodnik po organicznych metodach budowania społeczności, algorytmach Meta i strategiach angażowania lokalnych odbiorców.",
-      tag: "Darmowy Zasięg"
-    },
-    {
-      title: "Czy Twoja strona internetowa odstrasza klientów? 5 krytycznych błędów UX i konwersji",
-      category: "Strony WWW",
-      readTime: "8 min czytania",
-      date: "Czerwiec 2026",
-      desc: "Jak nieintuicyjna nawigacja, powolne ładowanie i słabe Call to Action potajemnie niszczą Twoje wyniki sprzedażowe.",
-      tag: "Optymalizacja"
-    },
-    {
-      title: "Automatyzacja procesów w mikro i małej firmie: jak zaoszczędzić 10 godzin tygodniowo?",
-      category: "Automatyzacje",
-      readTime: "7 min czytania",
-      date: "Czerwiec 2026",
-      desc: "Praktyczne wdrożenie prostych skryptów, autoresponderów i asystentów AI, które wykonają powtarzalną pracę za Ciebie.",
-      tag: "Efektywność"
-    }
-  ];
 
   return (
     <div className="pt-32 pb-24 overflow-hidden bg-navy-dark">
@@ -60,20 +36,21 @@ export default function BlogPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-text-muted text-lg leading-relaxed font-body font-light"
           >
-            Baza praktycznych wskazówek, przewodników biznesowych i trendów technologicznych skrojonych specjalnie dla małych i średnich firm. Sprawdź, co dla Ciebie przygotowujemy.
+            Baza praktycznych wskazówek, przewodników biznesowych i trendów technologicznych skrojonych specjalnie dla małych i średnich firm. Sprawdź naszą aktualną bazę wiedzy.
           </motion.p>
         </div>
 
         {/* Typographically Elegant Blog Grid (NO CARDS) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20 border-t border-white/10 pt-16">
-          {upcomingPosts.map((post, index) => (
+          {BLOG_POSTS.map((post, index) => (
             <motion.div
               key={post.title}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.15 }}
-              className="flex flex-col justify-between group"
+              onClick={() => navigate(post.slug as any)}
+              className="flex flex-col justify-between group cursor-pointer"
             >
               <div>
                 {/* Meta details header info */}
@@ -81,9 +58,9 @@ export default function BlogPage() {
                   <span className="font-heading font-light text-primary text-5xl select-none leading-none">
                     0{index + 1}
                   </span>
-                  <div className="flex items-center gap-1.5 text-[10px] text-primary font-mono tracking-widest uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/70 animate-pulse" />
-                    W redakcji
+                  <div className="flex items-center gap-1.5 text-[10px] text-primary/80 font-mono tracking-widest uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-pulse" />
+                    Opublikowano
                   </div>
                 </div>
 
@@ -100,9 +77,14 @@ export default function BlogPage() {
                 </h3>
 
                 {/* Description */}
-                <p className="text-text-muted text-sm md:text-base leading-relaxed mb-8 font-light">
+                <p className="text-text-muted text-sm md:text-base leading-relaxed mb-4 font-light">
                   {post.desc}
                 </p>
+
+                {/* Read Link */}
+                <div className="inline-flex items-center gap-2 text-xs text-primary font-mono tracking-wider uppercase group-hover:translate-x-1.5 transition-transform duration-300 mb-8">
+                  Czytaj artykuł <ArrowRight size={12} />
+                </div>
               </div>
 
               {/* Footer Meta */}

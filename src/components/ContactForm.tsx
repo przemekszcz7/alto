@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
@@ -16,13 +16,32 @@ export default function ContactForm() {
 
     setStatus('loading');
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setStatus('success');
-    setFormData({ name: '', contact: '', message: '' });
+    try {
+      const response = await fetch('https://formspree.io/f/mojzydlk', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          contact: formData.contact,
+          message: formData.message
+        })
+      });
 
-    setTimeout(() => setStatus('idle'), 5000);
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', contact: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -41,6 +60,7 @@ export default function ContactForm() {
               <label className="text-sm font-bold text-white/70 uppercase tracking-widest pl-2">Imię i nazwisko</label>
               <input
                 type="text"
+                name="name"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -52,6 +72,7 @@ export default function ContactForm() {
               <label className="text-sm font-bold text-white/70 uppercase tracking-widest pl-2">Telefon lub e-mail</label>
               <input
                 type="text"
+                name="contact"
                 required
                 value={formData.contact}
                 onChange={(e) => setFormData({...formData, contact: e.target.value})}
@@ -65,6 +86,7 @@ export default function ContactForm() {
             <label className="text-sm font-bold text-white/70 uppercase tracking-widest pl-2">Wiadomość</label>
             <textarea
               rows={5}
+              name="message"
               value={formData.message}
               onChange={(e) => setFormData({...formData, message: e.target.value})}
               placeholder="Opisz krótko swój biznes i cele..."
@@ -74,20 +96,24 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            disabled={status !== 'idle'}
+            disabled={status !== 'idle' && status !== 'error'}
             className="w-full btn-primary flex items-center justify-center gap-3 py-6 text-xl relative overflow-hidden disabled:opacity-70"
-            aria-label={status === 'loading' ? "Trwa wysyłanie wiadomości" : status === 'success' ? "Wiadomość została wysłana pomyślnie" : "Wyślij formularz kontaktowy"}
+            aria-label={status === 'loading' ? "Trwa wysyłanie wiadomości" : status === 'success' ? "Wiadomość została wysłana pomyślnie" : status === 'error' ? "Wystąpił błąd przy wysyłaniu" : "Wyślij formularz kontaktowy"}
           >
             <AnimatePresence mode="wait">
-              {status === 'idle' && (
+              {(status === 'idle' || status === 'error') && (
                 <motion.div
-                  key="idle"
+                  key={status}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}
                   className="flex items-center gap-3"
                 >
-                  Wyślij wiadomość <Send size={20} />
+                  {status === 'error' ? (
+                    <span className="text-red-400">Coś poszło nie tak. Spróbuj ponownie <span className="font-mono text-xs">(Błąd wejścia)</span></span>
+                  ) : (
+                    <>Wyślij wiadomość <Send size={20} /></>
+                  )}
                 </motion.div>
               )}
               {status === 'loading' && (

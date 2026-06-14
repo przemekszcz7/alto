@@ -21,16 +21,17 @@ import Loader from './components/Loader';
 import { useSectionReveal } from './hooks/useSectionReveal';
 import { useHashRoute } from './hooks/useHashRoute';
 import BlogPage from './components/BlogPage';
+import BlogPost from './components/BlogPost';
 import AuditPage from './components/AuditPage';
 import PrivacyPage from './components/PrivacyPage';
 import CookiesPage from './components/CookiesPage';
 import TermsPage from './components/TermsPage';
 
 export default function App() {
-  const { currentRoute } = useHashRoute();
+  const { currentRoute, navigate } = useHashRoute();
   
   // Initialize section reveal observer
-  useSectionReveal();
+  useSectionReveal(currentRoute);
 
   useEffect(() => {
     // Global Ripple Effect Logic
@@ -85,6 +86,9 @@ export default function App() {
           </>
         )}
         {currentRoute === '/blog' && <BlogPage />}
+        {currentRoute.startsWith('/blog/') && (
+          <BlogPost slug={currentRoute} onBack={() => navigate('/blog')} />
+        )}
         {currentRoute === '/audyt' && <AuditPage />}
         {currentRoute === '/polityka-prywatnosci' && <PrivacyPage />}
         {currentRoute === '/polityka-cookies' && <CookiesPage />}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export function useSectionReveal() {
+export function useSectionReveal(currentRoute?: string) {
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -24,5 +24,5 @@ export function useSectionReveal() {
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
-  }, []);
+  }, [currentRoute]);
 }
