@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PainPoints from './components/PainPoints';
@@ -20,12 +20,13 @@ import CookieConsent from './components/CookieConsent';
 import Loader from './components/Loader';
 import { useSectionReveal } from './hooks/useSectionReveal';
 import { useHashRoute } from './hooks/useHashRoute';
-import BlogPage from './components/BlogPage';
-import BlogPost from './components/BlogPost';
-import AuditPage from './components/AuditPage';
-import PrivacyPage from './components/PrivacyPage';
-import CookiesPage from './components/CookiesPage';
-import TermsPage from './components/TermsPage';
+
+const BlogPage = lazy(() => import('./components/BlogPage'));
+const BlogPost = lazy(() => import('./components/BlogPost'));
+const AuditPage = lazy(() => import('./components/AuditPage'));
+const PrivacyPage = lazy(() => import('./components/PrivacyPage'));
+const CookiesPage = lazy(() => import('./components/CookiesPage'));
+const TermsPage = lazy(() => import('./components/TermsPage'));
 
 export default function App() {
   const { currentRoute, navigate } = useHashRoute();
@@ -72,27 +73,33 @@ export default function App() {
       <Navbar />
       
       <main>
-        {currentRoute === '/' && (
-          <>
-            <Hero />
-            <PainPoints />
-            <WhyAlto />
-            <Services />
-            <Process />
-            <Industries />
-            <Portfolio />
-            <CTABanner />
-            <ContactForm />
-          </>
-        )}
-        {currentRoute === '/blog' && <BlogPage />}
-        {currentRoute.startsWith('/blog/') && (
-          <BlogPost slug={currentRoute} onBack={() => navigate('/blog')} />
-        )}
-        {currentRoute === '/audyt' && <AuditPage />}
-        {currentRoute === '/polityka-prywatnosci' && <PrivacyPage />}
-        {currentRoute === '/polityka-cookies' && <CookiesPage />}
-        {currentRoute === '/regulamin' && <TermsPage />}
+        <Suspense fallback={
+          <div className="flex items-center justify-center min-h-[50vh]">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        }>
+          {currentRoute === '/' && (
+            <>
+              <Hero />
+              <PainPoints />
+              <WhyAlto />
+              <Services />
+              <Process />
+              <Industries />
+              <Portfolio />
+              <CTABanner />
+              <ContactForm />
+            </>
+          )}
+          {currentRoute === '/blog' && <BlogPage />}
+          {currentRoute.startsWith('/blog/') && (
+            <BlogPost slug={currentRoute} onBack={() => navigate('/blog')} />
+          )}
+          {currentRoute === '/audyt' && <AuditPage />}
+          {currentRoute === '/polityka-prywatnosci' && <PrivacyPage />}
+          {currentRoute === '/polityka-cookies' && <CookiesPage />}
+          {currentRoute === '/regulamin' && <TermsPage />}
+        </Suspense>
       </main>
 
       <Footer />

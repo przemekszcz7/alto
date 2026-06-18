@@ -1,7 +1,7 @@
 import { Eye } from 'lucide-react';
-import image1 from '../assets/images/regenerated_image_1780824762703.jpg';
-import image2 from '../assets/images/regenerated_image_1780824763985.jpg';
-import image3 from '../assets/images/regenerated_image_1780824764645.jpg';
+import image1 from '../assets/images/regenerated_image_1780824762703.jpg?width=1200&format=webp';
+import image2 from '../assets/images/regenerated_image_1780824763985.jpg?width=1200&format=webp';
+import image3 from '../assets/images/regenerated_image_1780824764645.jpg?width=1200&format=webp';
 
 const projects = [
   {
@@ -24,6 +24,20 @@ const projects = [
     desc: 'Pełne wdrożenie dedykowanego systemu zamówień bezpośrednich przełamującego monopol drogich platform kurierskich, połączone z opieką marketingową.',
     image: image3,
     align: 'full'
+  },
+  {
+    title: 'Usługi Koparką Wywrotką Iława',
+    tag: 'Strona internetowa i pozycjonowanie',
+    desc: 'Nowoczesny, wysoce responsywny serwis dla lokalnego lidera usług ziemnych i transportowych. Kompleksowe pozycjonowanie (SEO) przełożyło się na dominację w wynikach wyszukiwania na terenie Iławy i okolic.',
+    image: 'https://i.ibb.co/FqfYPf08/695856445-122096089485318216-2287039888826616945-n.jpg',
+    align: 'left'
+  },
+  {
+    title: 'Karczma Rządza Rustykalna Sala Bankietowa',
+    tag: 'Strona internetowa',
+    desc: 'Klimatyczna, dopracowana wizualnie witryna internetowa dla rustykalnej sali bankietowej i karczmy, znakomicie oddająca urok tradycyjnego miejsca i ułatwiająca rezerwacje terminów weselnych oraz bankietowych.',
+    image: 'https://i.ibb.co/WWDRbkQL/494213384-1265600152237671-3711941915852840053-n.jpg',
+    align: 'right'
   }
 ];
 
@@ -72,6 +86,8 @@ export default function Portfolio() {
                         <img 
                           src={project.image} 
                           alt={`Realizacja Alto: ${project.title}`}
+                          width="800"
+                          height="343"
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
                         />
@@ -98,6 +114,8 @@ export default function Portfolio() {
                     <img 
                       src={project.image} 
                       alt={`Realizacja Alto: ${project.title}`}
+                      width="800"
+                      height="450"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />

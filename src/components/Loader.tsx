@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
-import loaderLogo from '../assets/images/regenerated_image_1780829677406.png';
+import loaderLogo from '../assets/images/regenerated_image_1780829677406.png?width=320&format=webp';
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
@@ -26,6 +26,8 @@ export default function Loader() {
               src={loaderLogo}
               alt="Alto - Nowoczesna agencja marketingowa dla Twojej firmy"
               fetchPriority="high"
+              width="250"
+              height="250"
               className="h-56 md:h-80 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.35)] saturate-[1.25]"
             />
             <motion.div

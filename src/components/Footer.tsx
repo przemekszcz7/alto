@@ -1,7 +1,7 @@
 import React from 'react';
 import { Facebook, ArrowUpRight } from 'lucide-react';
 import { useHashRoute } from '../hooks/useHashRoute';
-import footerLogo from '../assets/images/regenerated_image_1780829676707.png';
+import footerLogo from '../assets/images/regenerated_image_1780829676707.png?width=256&format=webp';
 
 const footerLinks = [
   {
@@ -82,6 +82,8 @@ export default function Footer() {
                 src={footerLogo} 
                 alt="Alto - Kompleksowy marketing dla małych i średnich firm" 
                 loading="lazy"
+                width="160"
+                height="160"
                 className="h-36 md:h-40 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.3)] saturate-[1.25] transition-all duration-300 hover:scale-105"
               />
             </a>

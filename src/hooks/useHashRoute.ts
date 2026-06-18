@@ -46,6 +46,8 @@ export function getRouteFromPath(): RoutePath {
   return '/';
 }
 
+const listeners = new Set<() => void>();
+
 export function useHashRoute() {
   const [currentRoute, setCurrentRoute] = useState<RoutePath>(getRouteFromPath());
 
@@ -55,6 +57,7 @@ export function useHashRoute() {
       window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     };
 
+    listeners.add(handleLocationChange);
     window.addEventListener('popstate', handleLocationChange);
     window.addEventListener('hashchange', handleLocationChange);
     
@@ -62,6 +65,7 @@ export function useHashRoute() {
     handleLocationChange();
 
     return () => {
+      listeners.delete(handleLocationChange);
       window.removeEventListener('popstate', handleLocationChange);
       window.removeEventListener('hashchange', handleLocationChange);
     };
@@ -81,7 +85,13 @@ export function useHashRoute() {
     }
 
     window.history.pushState({}, '', targetPath);
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    listeners.forEach((listener) => {
+      try {
+        listener();
+      } catch (err) {
+        console.error(err);
+      }
+    });
   };
 
   return { currentRoute, navigate };
