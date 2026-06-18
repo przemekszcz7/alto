@@ -35,13 +35,38 @@ export default function AuditPage() {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mojzydlk', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          website: formData.website,
+          businessType: formData.businessType,
+          message: formData.message,
+          _subject: `Nowe zgłoszenie audytowe: ${formData.website}`
+        })
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+      } else {
+        alert('Podczas wysyłania formularza wystąpił błąd. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.');
+      }
+    } catch (error) {
+      alert('Podczas wysyłania formularza wystąpił błąd sieci. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-    }, 1500);
+    }
   };
 
   return (
