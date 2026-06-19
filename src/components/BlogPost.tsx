@@ -1,13 +1,16 @@
+import React from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
 import { BLOG_POSTS, BlogPostType } from '../data/blogPosts';
+import { useHashRoute } from '../hooks/useHashRoute';
 
 interface BlogPostProps {
   slug: string;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 export default function BlogPost({ slug, onBack }: BlogPostProps) {
+  const { navigate } = useHashRoute();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -17,11 +20,17 @@ export default function BlogPost({ slug, onBack }: BlogPostProps) {
 
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
+  const handleBack = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    navigate('/blog');
+    if (onBack) onBack();
+  };
+
   if (!post) {
     return (
       <div className="pt-40 pb-24 text-center">
         <p className="text-text-muted mb-4">Artykuł nie został znaleziony.</p>
-        <button onClick={onBack} className="text-primary hover:underline font-mono text-xs uppercase tracking-wider inline-flex items-center gap-2">
+        <button onClick={handleBack} className="text-primary hover:underline font-mono text-xs uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer">
           <ArrowLeft size={14} /> Wróć do bloga
         </button>
       </div>
@@ -45,7 +54,7 @@ export default function BlogPost({ slug, onBack }: BlogPostProps) {
           className="mb-12"
         >
           <button
-            onClick={onBack}
+            onClick={handleBack}
             className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-text-muted hover:text-primary transition-colors cursor-pointer bg-transparent border-none outline-none"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
@@ -116,7 +125,7 @@ export default function BlogPost({ slug, onBack }: BlogPostProps) {
         {/* Bottom Navigation */}
         <div className="border-t border-white/10 mt-16 pt-12 flex justify-between items-center">
           <button
-            onClick={onBack}
+            onClick={handleBack}
             className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary hover:text-white transition-colors cursor-pointer bg-transparent border border-primary/30 px-4 py-2 rounded-sm"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
