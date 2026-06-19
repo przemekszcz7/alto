@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowDown } from 'lucide-react';
 
@@ -11,54 +11,61 @@ const WORDS = [
 ];
 
 export default function Hero() {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [displayText, setDisplayText] = useState('');
+
+  // All mutable typewriter state in refs – zero extra re-renders
+  const wordIndexRef = useRef(0);
+  const charIndexRef = useRef(0);
+  const isDeletingRef = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    const fullWord = WORDS[currentWordIndex];
+    const tick = () => {
+      const word = WORDS[wordIndexRef.current];
+      const deleting = isDeletingRef.current;
 
-    const handleType = () => {
-      if (!isDeleting) {
-        // Typing characters
-        setCurrentText((prev) => fullWord.substring(0, prev.length + 1));
-        
-        if (currentText === fullWord) {
-          // Pause when word is fully typed
-          timer = setTimeout(() => setIsDeleting(true), 2200);
+      if (!deleting) {
+        charIndexRef.current += 1;
+        setDisplayText(word.substring(0, charIndexRef.current));
+
+        if (charIndexRef.current === word.length) {
+          // Fully typed – pause before deleting
+          isDeletingRef.current = true;
+          timerRef.current = setTimeout(tick, 2200);
           return;
         }
       } else {
-        // Deleting characters
-        setCurrentText((prev) => fullWord.substring(0, prev.length - 1));
-        
-        if (currentText === '') {
-          // Move to next word when deleted
-          setIsDeleting(false);
-          setCurrentWordIndex((prev) => (prev + 1) % WORDS.length);
-          timer = setTimeout(() => {}, 400);
+        charIndexRef.current -= 1;
+        setDisplayText(word.substring(0, charIndexRef.current));
+
+        if (charIndexRef.current === 0) {
+          // Fully deleted – move to next word
+          isDeletingRef.current = false;
+          wordIndexRef.current = (wordIndexRef.current + 1) % WORDS.length;
+          timerRef.current = setTimeout(tick, 400);
           return;
         }
       }
 
-      const speed = isDeleting ? 30 : 60;
-      timer = setTimeout(handleType, speed);
+      timerRef.current = setTimeout(tick, deleting ? 30 : 60);
     };
 
-    timer = setTimeout(handleType, isDeleting ? 30 : 60);
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIndex]);
+    timerRef.current = setTimeout(tick, 60);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []); // ← runs once, no dependency churn
 
   return (
     <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-navy-dark border-b border-white/10 pt-16">
       {/* Absolute background accent */}
       <div className="absolute inset-0 bg-radial-gradient from-navy-light/10 via-transparent to-transparent opacity-60 pointer-events-none" />
-      
+
       <div className="max-w-5xl mx-auto px-6 md:px-12 w-full flex flex-col items-center text-center relative z-10">
-        
+
         {/* Main Header Title with high-contrast typewriter effect */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -67,11 +74,11 @@ export default function Hero() {
           Ty prowadzisz biznes. <br />
           <span className="italic font-normal text-[#C9A84C]">My bierzemy na siebie</span> <br />
           <span className="text-[#C9A84C] relative inline-block text-3xl md:text-6xl min-h-[1.2em] pt-2">
-            {currentText}
+            {displayText}
             <span className="typewriter-cursor ml-1 inline-block h-[0.9em] align-middle w-[2px]"></span>
           </span>
         </motion.h1>
-        
+
         {/* Descriptive intro paragraph */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -81,9 +88,9 @@ export default function Hero() {
         >
           Kompleksowa obsługa marketingu dla lokalnych liderów i ambitnych firm. Bez drogich pośredników, bez lania wody i rozproszonych agencji. Tworzymy strony, budujemy widoczność i dostarczamy realnych klientów.
         </motion.p>
-        
+
         {/* Interactive CTA buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -98,11 +105,11 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Decorative vertical divider lines to add structural control */}
+      {/* Decorative vertical divider lines */}
       <div className="absolute right-12 top-0 bottom-0 w-[1px] bg-white/[0.03] hidden xl:block pointer-events-none" />
       <div className="absolute left-12 top-0 bottom-0 w-[1px] bg-white/[0.03] hidden xl:block pointer-events-none" />
 
-      {/* Centered Scroll Down Indicator */}
+      {/* Scroll Down Indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

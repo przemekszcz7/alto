@@ -27,7 +27,7 @@
           "@type": ["LocalBusiness", "ProfessionalService"],
           "@id": "https://altoagencja.pl/#localbusiness",
           "name": "Alto Agencja Marketingowa",
-          "image": "https://altoagencja.pl/src/assets/images/regenerated_image_1780829677406.png",
+          "image": "https://altoagencja.pl/assets/regenerated_image_1780829677406.png",
           "url": "https://altoagencja.pl",
           "telephone": "+48661552316",
           "priceRange": "$$",
@@ -45,19 +45,11 @@
           },
           "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
             "opens": "08:00",
             "closes": "17:00"
           },
-          "sameAs": [
-            "https://www.facebook.com/altoagencja"
-          ]
+          "sameAs": ["https://www.facebook.com/altoagencja"]
         },
         {
           "@type": "Organization",
@@ -67,7 +59,7 @@
           "logo": {
             "@type": "ImageObject",
             "@id": "https://altoagencja.pl/#logo",
-            "url": "https://altoagencja.pl/src/assets/images/regenerated_image_1780829677406.png",
+            "url": "https://altoagencja.pl/assets/regenerated_image_1780829677406.png",
             "caption": "Alto Logo"
           },
           "contactPoint": {
@@ -82,17 +74,9 @@
           "@type": "Service",
           "@id": "https://altoagencja.pl/#service-marketing",
           "serviceType": "Kompleksowy Marketing dla MSP",
-          "provider": {
-            "@id": "https://altoagencja.pl/#localbusiness"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "Poland"
-          },
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PLN"
-          },
+          "provider": { "@id": "https://altoagencja.pl/#localbusiness" },
+          "areaServed": { "@type": "Country", "name": "Poland" },
+          "offers": { "@type": "Offer", "priceCurrency": "PLN" },
           "description": "Profesjonalne tworzenie stron www, kompleksowa opieka i administracja, pozycjonowanie SEO, pozycjonowanie lokalne, reklamy Google Moja Firma, kampanie Google Ads & Meta Ads oraz automatyzacje procesów w firmach."
         }
       ]
@@ -104,7 +88,7 @@
     <meta property="og:url" content="https://altoagencja.pl" />
     <meta property="og:title" content="Alto - Twoja firma. Widoczna w sieci. | Kompleksowy Marketing dla MSP" />
     <meta property="og:description" content="Zajmij się prowadzeniem biznesu, a my zadbamy o resztę. Projektujemy nowoczesne strony internetowe, prowadzimy social media i optymalizujemy kampanie reklamowe." />
-    <meta property="og:image" content="./src/assets/images/regenerated_image_1780829677406.png" />
+    <meta property="og:image" content="https://altoagencja.pl/assets/og-image.webp" />
     <meta property="og:site_name" content="Alto" />
     <meta property="og:locale" content="pl_PL" />
 
@@ -113,27 +97,36 @@
     <meta name="twitter:url" content="https://altoagencja.pl" />
     <meta name="twitter:title" content="Alto - Twoja firma. Widoczna w sieci. | Kompleksowy Marketing dla MSP" />
     <meta name="twitter:description" content="Kompleksowy marketing w jednym miejscu dla małych firm. Profesjonalne strony WWW, social media i reklamy." />
-    <meta name="twitter:image" content="./src/assets/images/regenerated_image_1780829677406.png" />
+    <meta name="twitter:image" content="https://altoagencja.pl/assets/og-image.webp" />
 
-    <!-- Preload LCP image -->
-    <link rel="preload" as="image" href="./src/assets/images/regenerated_image_1780829677406.png" fetchpriority="high">
-    <link rel="preload" as="image" href="./src/assets/images/regenerated_image_1780829676018.png" fetchpriority="high">
+    <!--
+      UWAGA: Nie dodawaj tutaj ręcznie <link rel="preload"> dla fontów woff2 ani obrazów z /assets/.
+      Vite generuje te ścieżki dynamicznie przy każdym buildzie (hash w nazwie pliku).
+      Ręczne preloady stają się nieaktualne po każdym `npm run build`.
 
-    <!-- Preload critical module script -->
-    <link rel="modulepreload" href="/src/main.tsx">
+      Fonty są preloadowane automatycznie przez vite-plugin-webfont-dl (injectAsStyleTag: false).
+      Obrazy LCP są oznaczone fetchpriority="high" bezpośrednio w komponentach React.
+    -->
 
-    <link rel="icon" type="image/png" href="./src/assets/images/regenerated_image_1780829677406.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
   </head>
   <body class="bg-navy-dark text-[#0A0F2C] selection:bg-[#C9A84C] selection:text-white">
     <div id="root">
-      <!-- High-performance CSS-only loader to prevent split-second fallback content flash before React mounts -->
-      <div id="html-loader" style="position: fixed; inset: 0; z-index: 9999; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <!-- CSS-only loader zapobiegający flashowi przed załadowaniem React -->
+      <div id="html-loader" style="position: fixed; inset: 0; z-index: 9999; background: #060B1F; display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
-          <img src="./src/assets/images/regenerated_image_1780829677406.png" alt="Alto Agencja Marketingowa" style="height: 224px; width: auto; object-fit: contain; filter: brightness(1.05) contrast(1.2) drop-shadow(0px 0px 28px rgba(201,168,76,0.35)) saturate(1.25);" />
+          <img
+            src="/favicon.png"
+            alt="Alto Agencja Marketingowa"
+            width="200"
+            height="200"
+            style="height: 200px; width: auto; object-fit: contain; filter: brightness(1.05) contrast(1.2) drop-shadow(0px 0px 28px rgba(201,168,76,0.35)) saturate(1.25);"
+          />
           <div style="position: absolute; bottom: -32px; left: 0; width: 100%; height: 2px; background-color: #C9A84C;"></div>
         </div>
       </div>
-      <!-- Fallback static content for SEO crawlers and indexers -->
+
+      <!-- Fallback static content dla crawlerów SEO -->
       <header style="padding: 20px 40px; border-bottom: 1px solid rgba(10,15,44,0.1); display: flex; justify-content: space-between; align-items: center;">
         <span style="font-weight: bold; font-size: 24px; color: #C9A84C; letter-spacing: 0.05em;">ALTO</span>
         <nav style="display: flex; gap: 20px; flex-wrap: wrap;">
@@ -160,11 +153,9 @@
           </div>
         </section>
 
-        <!-- Sekcja Usługi -->
         <section id="uslugi" style="padding: 60px 0;">
           <h2 style="font-size: 36px; text-align: center; margin-bottom: 16px; color: #0A0F2C;">Współpracując z nami, masz z głowy:</h2>
           <p style="text-align: center; color: #5E6675; margin-bottom: 40px; font-size: 16px;">Kompleksowy pakiet usług marketingowych dopasowanych do potrzeb nowoczesnego biznesu.</p>
-          
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
             <article style="background: rgba(10,15,44,0.02); border: 1px solid rgba(10,15,44,0.05); padding: 24px; border-radius: 4px;">
               <h3 style="color: #C9A84C; font-size: 20px; margin-bottom: 12px;">Tworzenie stron internetowych</h3>
@@ -176,7 +167,7 @@
             </article>
             <article style="background: rgba(10,15,44,0.02); border: 1px solid rgba(10,15,44,0.05); padding: 24px; border-radius: 4px;">
               <h3 style="color: #C9A84C; font-size: 20px; margin-bottom: 12px;">Pozycjonowanie SEO</h3>
-              <p style="color: #5E6675; font-size: 14px; line-height: 1.6;">Optymalizacja techniczna, treściowa i lokalna. Pojawiasz się tam, gdzie klienci szukają Twoich usług - bezpośrednio w Google.</p>
+              <p style="color: #5E6675; font-size: 14px; line-height: 1.6;">Optymalizacja techniczna, treściowa i lokalna. Pojawiasz się tam, gdzie klienci szukają Twoich usług.</p>
             </article>
             <article style="background: rgba(10,15,44,0.02); border: 1px solid rgba(10,15,44,0.05); padding: 24px; border-radius: 4px;">
               <h3 style="color: #C9A84C; font-size: 20px; margin-bottom: 12px;">Wizytówka Google Moja Firma</h3>
@@ -201,17 +192,13 @@
           </div>
         </section>
 
-        <!-- Sekcja O Nas / Dlaczego -->
         <section id="dlaczego-alto" style="padding: 60px 0; border-top: 1px solid rgba(10,15,44,0.1);">
-          <div style="display: flex; flex-direction: column; gap: 30px;">
-            <h2 style="font-size: 36px; color: #0A0F2C;">Dlaczego Alto Agencja Marketingowa?</h2>
-            <p style="color: #5E6675; font-size: 16px; line-height: 1.8;">
-              Oferujemy zintegrowane i kompleksowe podejście marketingowe. Koncentrujemy się na celach biznesowych małych i średnich przedsiębiorstw, dostarczając jasne rezultaty, bez lania wody i zbędnego żargonu technicznego.
-            </p>
-          </div>
+          <h2 style="font-size: 36px; color: #0A0F2C;">Dlaczego Alto Agencja Marketingowa?</h2>
+          <p style="color: #5E6675; font-size: 16px; line-height: 1.8; margin-top: 20px;">
+            Oferujemy zintegrowane i kompleksowe podejście marketingowe. Koncentrujemy się na celach biznesowych małych i średnich przedsiębiorstw, dostarczając jasne rezultaty, bez lania wody i zbędnego żargonu technicznego.
+          </p>
         </section>
 
-        <!-- Kontakt -->
         <section id="kontakt" style="padding: 60px 0; border-top: 1px solid rgba(10,15,44,0.1); text-align: center;">
           <h2 style="font-size: 32px; margin-bottom: 16px; color: #0A0F2C;">Zacznijmy współpracę już dziś</h2>
           <p style="color: #5E6675; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -224,8 +211,8 @@
       <footer style="padding: 40px 20px; border-top: 1px solid rgba(10,15,44,0.05); text-align: center; color: #4B5563; font-size: 14px;">
         <p>&copy; 2026 Alto. Wszelkie prawa zastrzeżone.</p>
         <div style="margin-top: 15px;">
-          <a href="/polityka-prywatnosci" style="color: #4B5563; margin: 0 10px; text-decoration: none;">Polityka prywatności</a> | 
-          <a href="/polityka-cookies" style="color: #4B5563; margin: 0 10px; text-decoration: none;">Polityka cookies</a> | 
+          <a href="/polityka-prywatnosci" style="color: #4B5563; margin: 0 10px; text-decoration: none;">Polityka prywatności</a> |
+          <a href="/polityka-cookies" style="color: #4B5563; margin: 0 10px; text-decoration: none;">Polityka cookies</a> |
           <a href="/regulamin" style="color: #4B5563; margin: 0 10px; text-decoration: none;">Regulamin</a>
         </div>
       </footer>
@@ -233,4 +220,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

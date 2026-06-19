@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { useHashRoute, getRouteFromPath } from '../hooks/useHashRoute';
@@ -18,19 +18,39 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { currentRoute, navigate } = useHashRoute();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+  // Refs to avoid stale closures and enable throttling without re-renders
+  const rafRef = useRef<number | null>(null);
+  const lastScrollY = useRef(0);
+  const isScrolledRef = useRef(false);
+
+  const handleScroll = useCallback(() => {
+    // Throttle via requestAnimationFrame – runs at most once per frame (~16ms)
+    if (rafRef.current !== null) return;
+
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const scrollY = window.scrollY;
+
+      // Only setState when the threshold is actually crossed – avoids render spam
+      const shouldBeScrolled = scrollY > 50;
+      if (shouldBeScrolled !== isScrolledRef.current) {
+        isScrolledRef.current = shouldBeScrolled;
+        setIsScrolled(shouldBeScrolled);
+      }
 
       const route = getRouteFromPath();
       if (route !== '/') {
         setActiveSection(route);
-      } else if (window.scrollY < 200) {
+      } else if (scrollY < 200) {
         setActiveSection('');
       }
-    };
 
-    window.addEventListener('scroll', handleScroll);
+      lastScrollY.current = scrollY;
+    });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('popstate', handleScroll);
     window.addEventListener('hashchange', handleScroll);
     // Call once on init
@@ -42,7 +62,6 @@ export default function Navbar() {
       const sections = ['uslugi', 'realizacje', 'o-nas', 'kontakt'];
       const observerOptions = {
         root: null,
-        // Match sections when they enter the main vertical region of the viewport
         rootMargin: '-100px 0px -50% 0px',
         threshold: 0,
       };
@@ -57,9 +76,7 @@ export default function Navbar() {
 
       sections.forEach((id) => {
         const element = document.getElementById(id);
-        if (element) {
-          observer?.observe(element);
-        }
+        if (element) observer?.observe(element);
       });
     }
 
@@ -67,11 +84,13 @@ export default function Navbar() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('popstate', handleScroll);
       window.removeEventListener('hashchange', handleScroll);
-      if (observer) {
-        observer.disconnect();
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
+      if (observer) observer.disconnect();
     };
-  }, [currentRoute]);
+  }, [currentRoute, handleScroll]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/')) {
@@ -79,16 +98,13 @@ export default function Navbar() {
       navigate(href as any);
       return;
     }
-    
-    // It's an anchor on the home page (starts with #, e.g. #realizacje)
+
     if (currentRoute !== '/') {
       e.preventDefault();
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(href.substring(1));
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
       }, 450);
     } else {
       const element = document.getElementById(href.substring(1));
@@ -101,24 +117,21 @@ export default function Navbar() {
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isScrolled ? 'bg-navy-dark/80 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a 
-          href="/" 
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/');
-          }}
+        <a
+          href="/"
+          onClick={(e) => { e.preventDefault(); navigate('/'); }}
           className="flex items-center"
           aria-label="Strona główna - Alto Agencja Marketingowa"
         >
-          <img 
-            src={navbarLogo} 
-            alt="Alto - Agencja marketingowa, pozycjonowanie, strony internetowe" 
+          <img
+            src={navbarLogo}
+            alt="Alto - Agencja marketingowa, pozycjonowanie, strony internetowe"
             fetchPriority="high"
             width="144"
             height="144"
@@ -129,7 +142,7 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10">
           {links.map((link) => {
-            const isActive = link.href.startsWith('/') 
+            const isActive = link.href.startsWith('/')
               ? currentRoute === link.href
               : activeSection === link.href.substring(1);
             return (
@@ -148,7 +161,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden text-white hover:text-primary transition-colors cursor-pointer"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Otwórz menu"
@@ -175,7 +188,7 @@ export default function Navbar() {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-navy-light z-[70] p-10 flex flex-col justify-center"
             >
-              <button 
+              <button
                 className="absolute top-8 right-8 text-white hover:text-primary cursor-pointer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label="Zamknij menu"
@@ -185,7 +198,7 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-8">
                 {links.map((link) => {
-                  const isActive = link.href.startsWith('/') 
+                  const isActive = link.href.startsWith('/')
                     ? currentRoute === link.href
                     : activeSection === link.href.substring(1);
                   return (
