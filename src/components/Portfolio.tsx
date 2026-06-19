@@ -1,4 +1,4 @@
-import { Eye } from 'lucide-react';
+import { Eye, ExternalLink } from 'lucide-react';
 import image1 from '../assets/images/regenerated_image_1780824762703.jpg?width=1200&format=webp';
 import image2 from '../assets/images/regenerated_image_1780824763985.jpg?width=1200&format=webp';
 import image3 from '../assets/images/regenerated_image_1780824764645.jpg?width=1200&format=webp';
@@ -9,35 +9,40 @@ const projects = [
     tag: 'Wizerunek marki & SEO',
     desc: 'Zaprojektowanie rzemieślniczej strony www, kompletna optymalizacja SEO oraz konfiguracja lokalnej widoczności w wyszukiwarkach skutkująca stałym napływem klientów.',
     image: image1,
-    align: 'left'
+    align: 'left',
+    link: 'https://lodziarniapniewski.pl'
   },
   {
     title: 'Livia Smażalnia Ryb',
     tag: 'Strona WWW & Lokalne Reklamy',
     desc: 'Wizerunkowa witryna restauracji połączona z precyzyjną kampanią lokalną Google Maps docierającą do turystów i mieszkańców w czasie rzeczywistym.',
     image: image2,
-    align: 'right'
+    align: 'right',
+    link: 'https://liviasmazalniawedzarnia.pl'
   },
   {
     title: 'Pierogarnia na Kaszczorku',
     tag: 'System Zamówień Online & Social',
     desc: 'Pełne wdrożenie dedykowanego systemu zamówień bezpośrednich przełamującego monopol drogich platform kurierskich, połączone z opieką marketingową.',
     image: image3,
-    align: 'full'
+    align: 'full',
+    link: 'https://pierogarniawkaszczorku.pl'
   },
   {
     title: 'Usługi Koparką Wywrotką Iława',
     tag: 'Strona internetowa i pozycjonowanie',
     desc: 'Nowoczesny, wysoce responsywny serwis dla lokalnego lidera usług ziemnych i transportowych. Kompleksowe pozycjonowanie (SEO) przełożyło się na dominację w wynikach wyszukiwania na terenie Iławy i okolic.',
     image: 'https://i.ibb.co/FqfYPf08/695856445-122096089485318216-2287039888826616945-n.jpg',
-    align: 'left'
+    align: 'left',
+    link: 'https://koparkawywrotkailawa.pl'
   },
   {
     title: 'Karczma Rządza Rustykalna Sala Bankietowa',
     tag: 'Strona internetowa',
     desc: 'Klimatyczna, dopracowana wizualnie witryna internetowa dla rustykalnej sali bankietowej i karczmy, znakomicie oddająca urok tradycyjnego miejsca i ułatwiająca rezerwacje terminów weselnych oraz bankietowych.',
     image: 'https://i.ibb.co/WWDRbkQL/494213384-1265600152237671-3711941915852840053-n.jpg',
-    align: 'right'
+    align: 'right',
+    link: 'https://karczmarzadzarustykalnasalabankietowa.pl'
   }
 ];
 
@@ -75,14 +80,40 @@ export default function Portfolio() {
                       <span className="inline-block px-3 py-1 border border-[#C9A84C]/30 text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest rounded-sm mb-4">
                         {project.tag}
                       </span>
-                      <h3 className="text-4xl font-heading font-medium mb-4">{project.title}</h3>
+                      <h3 className="text-4xl font-heading font-medium mb-4">
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="hover:text-[#C9A84C] transition-colors"
+                        >
+                          {project.title}
+                        </a>
+                      </h3>
                       <p className="text-text-muted text-base font-light leading-relaxed font-body">
                         {project.desc}
                       </p>
+                      
+                      {project.link && (
+                        <a 
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-[#C9A84C] hover:text-[#e5c158] font-sans font-medium text-sm mt-6 group/link transition-colors duration-200"
+                        >
+                          <span>Odwiedź stronę</span>
+                          <ExternalLink className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
+                        </a>
+                      )}
                     </div>
 
                     <div className="lg:col-span-8">
-                      <div className="relative aspect-[21/9] overflow-hidden rounded-sm group bg-navy-light shadow-2xl">
+                      <a 
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block relative aspect-[21/9] overflow-hidden rounded-sm group bg-navy-light shadow-2xl"
+                      >
                         <img 
                           src={project.image} 
                           alt={`Realizacja Alto: ${project.title}`}
@@ -93,10 +124,10 @@ export default function Portfolio() {
                         />
                         <div className="absolute inset-0 bg-[#C9A84C]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                            <div className="w-12 h-12 rounded-full bg-[#C9A84C] text-white flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500">
-                              <Eye className="w-5 h-5 text-navy-dark" />
+                              <ExternalLink className="w-5 h-5 text-navy-dark" />
                            </div>
                         </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -110,7 +141,12 @@ export default function Portfolio() {
               >
                 {/* Image Column */}
                 <div className={`lg:col-span-7 ${project.align === 'right' ? 'lg:order-2' : ''}`}>
-                  <div className="relative aspect-video overflow-hidden rounded-sm group bg-navy-light shadow-2xl">
+                  <a 
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative aspect-video overflow-hidden rounded-sm group bg-navy-light shadow-2xl"
+                  >
                     <img 
                       src={project.image} 
                       alt={`Realizacja Alto: ${project.title}`}
@@ -121,10 +157,10 @@ export default function Portfolio() {
                     />
                     <div className="absolute inset-0 bg-[#C9A84C]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                        <div className="w-12 h-12 rounded-full bg-[#C9A84C] text-white flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500">
-                          <Eye className="w-5 h-5 text-navy-dark" />
+                          <ExternalLink className="w-5 h-5 text-navy-dark" />
                        </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
 
                 {/* Text Column */}
@@ -133,11 +169,30 @@ export default function Portfolio() {
                     {project.tag}
                   </span>
                   <h3 className="text-3xl md:text-4xl font-heading font-medium mb-4 text-white">
-                    {project.title}
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-[#C9A84C] transition-colors"
+                    >
+                      {project.title}
+                    </a>
                   </h3>
                   <p className="text-[#5C6B84] text-base md:text-md font-light leading-relaxed font-body">
                     {project.desc}
                   </p>
+
+                  {project.link && (
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#C9A84C] hover:text-[#e5c158] font-sans font-medium text-sm mt-6 group/link transition-colors duration-200"
+                    >
+                      <span>Odwiedź stronę</span>
+                      <ExternalLink className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
+                    </a>
+                  )}
                 </div>
               </div>
             );
