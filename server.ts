@@ -26,6 +26,11 @@ async function startServer() {
     res.json({ status: "ok" });
   });
 
+  // Statically serve keys, manifest, and favicons from the public folder directly
+  app.use(express.static(path.join(process.cwd(), "public"), {
+    maxAge: 7200000 // 2 hours cache
+  }));
+
   // Vite middleware for development or fallback static configuration in production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
