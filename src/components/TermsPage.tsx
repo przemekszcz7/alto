@@ -50,14 +50,14 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-heading text-white font-semibold mb-4">3. Własność intelektualna</h2>
             <p>
-              Wszelkie materiały zamieszczone w serwisie (teksty, opisy usług, elementy wizualne, logotypy, nazwy autorskie, grafiki oraz układy graficzne stron) stanowią wyłączną własność Alto Agency i są chronione prawem autorskim. Wykorzystywanie tych materiałów bez pisemnej zgody administratora jest zabronione.
+              Wszelkie materiały zamieszczone w serwisie (teksty, opisy usług, elementy wizualne, logotypy, nazwy autorskie, grafiki oraz układy graficzne stron) stanowią wyłączną własność Alto Agencja Reklamowa i są chronione prawem autorskim. Wykorzystywanie tych materiałów bez pisemnej zgody administratora jest zabronione.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-heading text-white font-semibold mb-4">4. Odpowiedzialność</h2>
             <p>
-              Alto Agency dokłada wszelkich starań, aby treści publikowane na stronie były aktualne, dokładne i merytoryczne. Wyliczenia cenowe widoczne na podstronie Oferta nie stanowią oferty handlowej w rozumieniu kodeksu cywilnego i powinny być traktowane wyłącznie jako punkt wyjścia do indywidualnej kalkulacji projektowej.
+              Alto Agencja Reklamowa dokłada wszelkich starań, aby treści publikowane na stronie były aktualne, dokładne i merytoryczne. Wyliczenia cenowe widoczne na podstronie Oferta nie stanowią oferty handlowej w rozumieniu kodeksu cywilnego i powinny być traktowane wyłącznie jako punkt wyjścia do indywidualnej kalkulacji projektowej.
             </p>
           </section>
 

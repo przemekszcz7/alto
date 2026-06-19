@@ -127,7 +127,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-text-muted text-sm tracking-wide">
-          <p>© 2026 Alto Agency. Wszystkie prawa zastrzeżone.</p>
+          <p>© 2026 Alto Agencja Reklamowa. Wszystkie prawa zastrzeżone.</p>
           <div className="flex gap-8">
             <a 
               href="/polityka-prywatnosci" 
