@@ -126,6 +126,13 @@
   </head>
   <body class="bg-navy-dark text-[#0A0F2C] selection:bg-[#C9A84C] selection:text-white">
     <div id="root">
+      <!-- High-performance CSS-only loader to prevent split-second fallback content flash before React mounts -->
+      <div id="html-loader" style="position: fixed; inset: 0; z-index: 9999; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+          <img src="./src/assets/images/regenerated_image_1780829677406.png" alt="Alto Agencja Marketingowa" style="height: 224px; width: auto; object-fit: contain; filter: brightness(1.05) contrast(1.2) drop-shadow(0px 0px 28px rgba(201,168,76,0.35)) saturate(1.25);" />
+          <div style="position: absolute; bottom: -32px; left: 0; width: 100%; height: 2px; background-color: #C9A84C;"></div>
+        </div>
+      </div>
       <!-- Fallback static content for SEO crawlers and indexers -->
       <header style="padding: 20px 40px; border-bottom: 1px solid rgba(10,15,44,0.1); display: flex; justify-content: space-between; align-items: center;">
         <span style="font-weight: bold; font-size: 24px; color: #C9A84C; letter-spacing: 0.05em;">ALTO</span>

@@ -28,13 +28,22 @@ export default defineConfig(({mode}) => {
           cookies: path.resolve(__dirname, 'polityka-cookies/index.html'),
           terms: path.resolve(__dirname, 'regulamin/index.html'),
         },
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          }
-        }
+output: {
+  manualChunks(id) {
+    if (!id.includes('node_modules')) return;
+
+    // Ciężkie biblioteki jako osobne chunki (lazy-load)
+    if (id.includes('motion')) return 'chunk-motion';
+    if (id.includes('@google/genai')) return 'chunk-genai';
+    if (id.includes('lucide-react')) return 'chunk-lucide';
+
+    // React core razem (mały, zawsze potrzebny)
+    if (id.includes('react-dom') || id.includes('react/')) return 'chunk-react';
+
+    // Reszta vendor
+    return 'chunk-vendor';
+  }
+}
       },
     },
     server: {
