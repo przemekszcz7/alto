@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const inputPath = path.join(__dirname, 'src/assets/images/regenerated_image_1780829677406.png');
+const inputPath = path.join(__dirname, 'src/assets/images/regenerated_image_1780829676018.png');
 const outputDir = path.join(__dirname, 'src/assets/images');
 
 async function resizeImage() {
@@ -36,7 +36,7 @@ async function resizeImage() {
       
     // Generate public/og-image.png (1200x630 with navy-dark background and centered logo)
     const logoResized = await sharp(inputPath)
-      .resize({ height: 350, width: 350, fit: 'contain', background: { r: 6, g: 11, b: 31, alpha: 1 } })
+      .resize({ height: 450, width: 900, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
       .toBuffer();
 
     await sharp({
