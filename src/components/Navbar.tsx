@@ -118,8 +118,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-navy-dark/80 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-navy-dark/80 backdrop-blur-md py-2 md:py-4 shadow-lg' : 'bg-transparent py-3 md:py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -135,7 +135,7 @@ export default function Navbar() {
             fetchPriority="high"
             width="144"
             height="144"
-            className="h-32 md:h-36 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_18px_rgba(201,168,76,0.3)] saturate-[1.25] transition-all duration-300 hover:scale-105"
+            className="h-10 sm:h-14 md:h-24 lg:h-28 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_12px_rgba(201,168,76,0.25)] saturate-[1.25] transition-all duration-300 hover:scale-105"
           />
         </a>
 

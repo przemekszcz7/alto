@@ -99,7 +99,7 @@ export const BLOG_POSTS: BlogPostType[] = [
           <li>„Co najbardziej irytuje Was u fryzjerów?" (dla salonu fryzjerskiego)</li>
         </ul>
 
-        <h3 className="text-xl font-heading font-medium text-white mb-4">Posty „przed i po" (before & after)</h3>
+        <h3 className="text-xl font-heading font-medium text-white mb-4">Posty „przed i po" (before i after)</h3>
         <p className="mb-8">
           Ten format działa ponadczasowo i generuje ogromne zaangażowanie. Realizacja projektu, efekt zabiegu, metamorfoza wnętrza — to treści, które ludzie chętnie komentują i udostępniają.
         </p>

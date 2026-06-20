@@ -5,7 +5,7 @@ import { ArrowDown } from 'lucide-react';
 const WORDS = [
   'cały Twój marketing w sieci.',
   'projektowanie nowoczesnych stron WWW.',
-  'skuteczne kampanie Google & Meta Ads.',
+  'skuteczne kampanie Google i Meta Ads.',
   'lokalne pozycjonowanie SEO i wizytówki.',
   'stałe pozyskiwanie nowych klientów.'
 ];
@@ -58,7 +58,7 @@ export default function Hero() {
   }, []); // ← runs once, no dependency churn
 
   return (
-    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-navy-dark border-b border-white/10 pt-16">
+    <section className="relative min-h-screen md:h-screen md:min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-navy-dark border-b border-white/10 pt-28 pb-16 md:py-0">
       {/* Absolute background accent */}
       <div className="absolute inset-0 bg-radial-gradient from-navy-light/10 via-transparent to-transparent opacity-60 pointer-events-none" />
 
@@ -84,7 +84,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#5C6B84] text-lg md:text-xl font-body max-w-2xl mb-12 leading-relaxed font-light"
+          className="text-[#5C6B84] text-lg md:text-xl font-body max-w-2xl mb-8 md:mb-12 leading-relaxed font-light"
         >
           Kompleksowa obsługa marketingu dla lokalnych liderów i ambitnych firm. Bez drogich pośredników, bez lania wody i rozproszonych agencji. Tworzymy strony, budujemy widoczność i dostarczamy realnych klientów.
         </motion.p>
@@ -94,7 +94,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto"
         >
           <a href="#uslugi" aria-label="Zobacz zakres oferowanych usług" className="btn-primary text-center ripple min-w-[200px]">
             Zobacz zakres usług

@@ -6,7 +6,7 @@ import image3 from '../assets/images/regenerated_image_1780824764645.jpg?width=1
 const projects = [
   {
     title: 'Lodziarnia Pniewscy',
-    tag: 'Wizerunek marki & SEO',
+    tag: 'Wizerunek marki i SEO',
     desc: 'Zaprojektowanie rzemieślniczej strony www, kompletna optymalizacja SEO oraz konfiguracja lokalnej widoczności w wyszukiwarkach skutkująca stałym napływem klientów.',
     image: image1,
     align: 'left',
@@ -14,7 +14,7 @@ const projects = [
   },
   {
     title: 'Livia Smażalnia Ryb',
-    tag: 'Strona WWW & Lokalne Reklamy',
+    tag: 'Strona WWW i Lokalne Reklamy',
     desc: 'Wizerunkowa witryna restauracji połączona z precyzyjną kampanią lokalną Google Maps docierającą do turystów i mieszkańców w czasie rzeczywistym.',
     image: image2,
     align: 'right',
@@ -22,7 +22,7 @@ const projects = [
   },
   {
     title: 'Pierogarnia na Kaszczorku',
-    tag: 'System Zamówień Online & Social',
+    tag: 'System Zamówień Online i Social',
     desc: 'Pełne wdrożenie dedykowanego systemu zamówień bezpośrednich przełamującego monopol drogich platform kurierskich, połączone z opieką marketingową.',
     image: image3,
     align: 'full',

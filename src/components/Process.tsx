@@ -65,7 +65,7 @@ export default function Process() {
 
               {/* Title & icon */}
               <div className="lg:w-1/3 shrink-0 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-sm border border-white/10 bg-navy-dark flex items-center justify-center text-[#C9A84C] shrink-0">
+                <div className="w-10 h-10 rounded-sm bg-navy-dark flex items-center justify-center text-[#C9A84C] shrink-0">
                   <step.icon className="w-4 h-4" />
                 </div>
                 <h3 className="font-heading text-xl md:text-2xl font-medium text-white leading-tight">

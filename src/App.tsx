@@ -17,6 +17,8 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import CookieConsent from './components/CookieConsent';
+import BackToTop from './components/BackToTop';
+import MobileStickyContact from './components/MobileStickyContact';
 import Loader from './components/Loader';
 import { useSectionReveal } from './hooks/useSectionReveal';
 import { useHashRoute } from './hooks/useHashRoute';
@@ -98,6 +100,8 @@ export default function App() {
 
       <Footer />
       <CookieConsent />
+      <BackToTop />
+      <MobileStickyContact />
     </div>
   );
 }

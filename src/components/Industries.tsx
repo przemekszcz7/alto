@@ -2,13 +2,13 @@ import { Utensils, Wrench, Home, Flower2, Store, PawPrint, Dumbbell, GraduationC
 
 const industries = [
   { name: 'Gastronomia', icon: Utensils, detail: 'restauracje, kawiarnie, bary, smażalnie ryb, pierogarnie' },
-  { name: 'Warsztaty & Serwisy', icon: Wrench, detail: 'serwisy samochodowe, autodetailing, naprawy maszyn' },
-  { name: 'Usługi domowe & budowlane', icon: Home, detail: 'remonty, sprzątanie, hydraulika, usługi elektryczne' },
-  { name: 'Salony urody & zdrowie', icon: Flower2, detail: 'gabinety kosmetyczne, fryzjerzy, kliniki fizjoterapii' },
-  { name: 'Sklepy lokalne & e-commerce', icon: Store, detail: 'butiki odzieżowe, kwiaciarnie, lokalne manufaktury' },
-  { name: 'Weterynaria & pet usługi', icon: PawPrint, detail: 'lecznice weterynaryjne, groomerzy, hotele dla psów' },
-  { name: 'Fitness & sport', icon: Dumbbell, detail: 'siłownie, trenerzy personalni, studia jogi i pilatesu' },
-  { name: 'Edukacja & usługi prywatne', icon: GraduationCap, detail: 'szkoły językowe, korepetycje, doradztwo lokalne' },
+  { name: 'Warsztaty i Serwisy', icon: Wrench, detail: 'serwisy samochodowe, autodetailing, naprawy maszyn' },
+  { name: 'Usługi domowe i budowlane', icon: Home, detail: 'remonty, sprzątanie, hydraulika, usługi elektryczne' },
+  { name: 'Salony urody i zdrowie', icon: Flower2, detail: 'gabinety kosmetyczne, fryzjerzy, kliniki fizjoterapii' },
+  { name: 'Sklepy lokalne i e-commerce', icon: Store, detail: 'butiki odzieżowe, kwiaciarnie, lokalne manufaktury' },
+  { name: 'Weterynaria i pet usługi', icon: PawPrint, detail: 'lecznice weterynaryjne, groomerzy, hotele dla psów' },
+  { name: 'Fitness i sport', icon: Dumbbell, detail: 'siłownie, trenerzy personalni, studia jogi i pilatesu' },
+  { name: 'Edukacja i usługi prywatne', icon: GraduationCap, detail: 'szkoły językowe, korepetycje, doradztwo lokalne' },
 ];
 
 export default function Industries() {
@@ -41,7 +41,7 @@ export default function Industries() {
               key={index} 
               className="group flex gap-6 items-start py-6 border-b border-white/5 last:border-0 md:even:border-l md:even:pl-12 md:even:border-white/5"
             >
-              <div className="w-12 h-12 rounded-sm border border-white/10 bg-[#C9A84C]/5 text-[#C9A84C] flex items-center justify-center shrink-0 group-hover:bg-[#C9A84C] group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-sm bg-[#C9A84C]/5 text-[#C9A84C] flex items-center justify-center shrink-0 group-hover:bg-[#C9A84C] group-hover:text-white transition-colors duration-300">
                 <ind.icon className="w-5 h-5" />
               </div>
               <div>

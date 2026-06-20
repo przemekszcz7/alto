@@ -20,7 +20,17 @@ export default function CTABanner() {
               Ty zajmij się tym, co robisz najlepiej — świadczeniem usług i budowaniem zespołu. My weźmiemy pełną, codzienną odpowiedzialność za to, by świat dowiedział się o Twojej firmie.
             </p>
             
-            <a href="#kontakt" className="btn-primary text-lg inline-flex items-center gap-3 ripple">
+            <a 
+              href="#kontakt" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('kontakt');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="btn-primary text-lg inline-flex items-center gap-3 ripple"
+            >
               Ustal termin darmowej konsultacji <ArrowRight size={18} />
             </a>
           </div>

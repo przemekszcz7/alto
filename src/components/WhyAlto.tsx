@@ -85,36 +85,36 @@ export default function WhyAlto() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10">
           
           <div className="flex flex-col items-start p-6">
-            <div className="w-12 h-12 rounded-sm border border-[#C9A84C]/20 bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
+            <div className="w-12 h-12 rounded-sm bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
               <ShieldCheck size={22} />
             </div>
-            <h4 className="font-heading text-lg font-medium text-white mb-3">
+            <h3 className="font-heading text-lg font-medium text-white mb-3">
               Jeden opiekun projektu
-            </h4>
+            </h3>
             <p className="text-[#5C6B84] text-sm font-light leading-relaxed font-body">
               Masz bezpośredni telefon do lidera projektu, który zna Twój biznes od podszewki. Żadnych infolinii, żadnych automatycznych botów, zero przekazywania spraw do dziesięciu innych osób.
             </p>
           </div>
 
           <div className="flex flex-col items-start p-6 md:border-l border-white/10">
-            <div className="w-12 h-12 rounded-sm border border-[#C9A84C]/20 bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
+            <div className="w-12 h-12 rounded-sm bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
               <Receipt size={22} />
             </div>
-            <h4 className="font-heading text-lg font-medium text-white mb-3">
+            <h3 className="font-heading text-lg font-medium text-white mb-3">
               Jeden przejrzysty rachunek
-            </h4>
+            </h3>
             <p className="text-[#5C6B84] text-sm font-light leading-relaxed font-body">
               Płacisz jedną stałą, wcześniej uzgodnioną kwotę abonamentu miesięcznego. Łatwo planujesz budżet swojej firmy, a księgowość rozlicza tylko jedną, prostą fakturę zamiast sterty drobnych rachunków.
             </p>
           </div>
 
           <div className="flex flex-col items-start p-6 md:border-l border-white/10">
-            <div className="w-12 h-12 rounded-sm border border-[#C9A84C]/20 bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
+            <div className="w-12 h-12 rounded-sm bg-navy-light/30 flex items-center justify-center text-[#C9A84C] mb-6">
               <Eye size={22} />
             </div>
-            <h4 className="font-heading text-lg font-medium text-white mb-3">
+            <h3 className="font-heading text-lg font-medium text-white mb-3">
               Absolutna przejrzystość
-            </h4>
+            </h3>
             <p className="text-[#5C6B84] text-sm font-light leading-relaxed font-body">
               Dostarczamy comiesięczne, rzetelne podsumowania w formie ludzkiej rozmowy i jasnych wniosków. Rozmawiamy o telefonach od klientów i sprzedaży, a nie o skomplikowanych wskaźnikach technicznych.
             </p>

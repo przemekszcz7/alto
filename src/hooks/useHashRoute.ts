@@ -52,9 +52,27 @@ export function useHashRoute() {
   const [currentRoute, setCurrentRoute] = useState<RoutePath>(getRouteFromPath());
 
   useEffect(() => {
+    let lastRoute = getRouteFromPath();
     const handleLocationChange = () => {
-      setCurrentRoute(getRouteFromPath());
-      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+      const nextRoute = getRouteFromPath();
+      const hash = window.location.hash;
+      
+      setCurrentRoute(nextRoute);
+      
+      const isAnchor = hash && !hash.startsWith('#/');
+      
+      if (nextRoute !== lastRoute) {
+        lastRoute = nextRoute;
+        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+      } else if (!isAnchor) {
+        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+      } else {
+        // Smooth scroll to target anchor
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     };
 
     listeners.add(handleLocationChange);

@@ -28,7 +28,7 @@ const services = [
   },
   {
     icon: Megaphone,
-    title: 'Precyzyjne kampanie Meta Ads & Google Ads',
+    title: 'Precyzyjne kampanie Meta Ads i Google Ads',
     desc: 'Skoncentrowane reklamy płatne docierające wyłącznie do potencjalnych klientów w Twoim mieście lub regionie. Pełna analityka wydanego budżetu.'
   },
   {

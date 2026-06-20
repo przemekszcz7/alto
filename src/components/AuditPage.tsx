@@ -16,7 +16,7 @@ export default function AuditPage() {
 
   const pillars = [
     {
-      title: "1. Audyt Strony WWW & SEO",
+      title: "1. Audyt Strony WWW i SEO",
       icon: <Search className="text-primary" size={24} />,
       desc: "Analizujemy widoczność witryny w wyszukiwarce Google, błędy techniczne, szybkość ładowania (Core Web Vitals) oraz optymalizację pod kątem urządzeń mobilnych.",
       checks: ["Czas ładowania i wydajność", "Wydajność mobilna", "Struktura nagłówków i słów kluczowych", "Weryfikacja profilu linków zewnętrznych"]
@@ -28,7 +28,7 @@ export default function AuditPage() {
       checks: ["Spójność brandingu profilu", "Analiza zaangażowania (ER)", "Poprawność ustawień wizytówki Google", "Jakość i język korzyści w postach"]
     },
     {
-      title: "3. Audyt Reklam & Konwersji",
+      title: "3. Audyt Reklam i Konwersji",
       icon: <BarChart3 className="text-primary" size={24} />,
       desc: "Jeśli prowadzisz płatne kampanie Meta Ads lub Google Ads, analizujemy właściwy dobór grup docelowych, efektywność kreacji reklamowych oraz efekty wydatkowanego budżetu.",
       checks: ["Rentowność kampanii ROAS/CPA", "Konfiguracja zdarzeń w pikselu śledzącym", "Wykluczanie nietrafionych odbiorców", "Jasność komunikatów na stronach docelowych"]
@@ -166,7 +166,7 @@ export default function AuditPage() {
                     /{idx + 1}
                   </span>
                   <div>
-                    <h4 className="text-white font-medium text-base mb-1.5">{item.title}</h4>
+                    <h3 className="text-white font-medium text-base mb-1.5">{item.title}</h3>
                     <p className="text-text-muted text-xs md:text-sm font-light leading-relaxed">{item.desc}</p>
                   </div>
                 </div>

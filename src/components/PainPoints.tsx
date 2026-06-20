@@ -37,7 +37,7 @@ export default function PainPoints() {
               <span className="italic font-normal text-[#C9A84C]">Wyrwij się z pętli chaosu.</span>
             </h2>
             <p className="mt-8 text-text-muted text-base font-light font-body leading-relaxed max-w-sm">
-              Zamiast rozbijać uwagę na dziesiątki drobnych zadań, oddaj pełną odpowiedzialność partnerowi, który zajmuje się tym od lat. Skoncentruj się na tym, na czym zarabiasz najwięcej.
+              Zamiast rozbijać uwagę na dziesiątki drobnych zadań, oddaj pełną odpowiedzialność zaufanemu partnerowi. Skoncentruj się na tym, na czym zarabiasz najwięcej.
             </p>
           </div>
 
