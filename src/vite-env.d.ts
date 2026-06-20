@@ -15,3 +15,8 @@ declare module '*.jpg?width=1200&format=webp' {
   export default content;
 }
 
+declare module '*?url' {
+  const content: string;
+  export default content;
+}
+

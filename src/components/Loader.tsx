@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
-import loaderLogo400 from '../assets/images/loader_logo_400.webp';
-import loaderLogo800 from '../assets/images/loader_logo_800.webp';
+import loaderLogo400 from '../assets/images/loader_logo_400.webp?url';
+import loaderLogo800 from '../assets/images/loader_logo_800.webp?url';
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
