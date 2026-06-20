@@ -26,9 +26,9 @@ export default function Loader() {
               src={loaderLogo}
               alt="Alto - Nowoczesna agencja marketingowa dla Twojej firmy"
               fetchPriority="high"
-              width={240}
-              height={240}
-              className="h-24 md:h-32 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.35)] saturate-[1.25]"
+              width={384}
+              height={384}
+              className="h-36 sm:h-44 md:h-56 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.35)] saturate-[1.25]"
             />
             <motion.div
               initial={{ scaleX: 0 }}
