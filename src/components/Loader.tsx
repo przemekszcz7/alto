@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
-import loaderLogo400 from '../assets/images/loader_logo_400.webp?url';
-import loaderLogo800 from '../assets/images/loader_logo_800.webp?url';
+import loaderLogo from '../assets/images/regenerated_image_1780829676018.png';
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
@@ -24,14 +23,12 @@ export default function Loader() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              src={loaderLogo400}
-              srcSet={`${loaderLogo400} 400w, ${loaderLogo800} 800w`}
-              sizes="(max-width: 640px) 392px, 800px"
+              src={loaderLogo}
               alt="Alto - Nowoczesna agencja marketingowa dla Twojej firmy"
               fetchPriority="high"
-              width={392}
-              height={392}
-              className="h-56 md:h-80 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.35)] saturate-[1.25]"
+              width={240}
+              height={240}
+              className="h-24 md:h-32 w-auto object-contain brightness-[1.05] contrast-[1.2] drop-shadow-[0_0_28px_rgba(201,168,76,0.35)] saturate-[1.25]"
             />
             <motion.div
               initial={{ scaleX: 0 }}
