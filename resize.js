@@ -1,7 +1,6 @@
 import sharp from 'sharp';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,10 +10,6 @@ const outputDir = path.join(__dirname, 'src/assets/images');
 
 async function resizeImage() {
   try {
-    // Ensure public/assets directory exists
-    const publicAssetsDir = path.join(__dirname, 'public/assets');
-    fs.mkdirSync(publicAssetsDir, { recursive: true });
-
     // Standard 400x400 WebP
     await sharp(inputPath)
       .resize(400, 400)
@@ -38,10 +33,10 @@ async function resizeImage() {
       .resize(32, 32)
       .toFormat('png')
       .toFile(path.join(__dirname, 'public/favicon.ico'));
-
-    // Generate public/assets/og-image.webp (1200x630 beautiful OG share image banner)
-    const logoResized = await sharp(path.join(__dirname, 'src/assets/images/regenerated_image_1780829676018.png'))
-      .resize({ width: 680, height: 340, fit: 'inside' })
+      
+    // Generate public/og-image.png (1200x630 with navy-dark background and centered logo)
+    const logoResized = await sharp(inputPath)
+      .resize({ height: 350, width: 350, fit: 'contain', background: { r: 6, g: 11, b: 31, alpha: 1 } })
       .toBuffer();
 
     await sharp({
@@ -49,14 +44,27 @@ async function resizeImage() {
         width: 1200,
         height: 630,
         channels: 4,
-        background: { r: 6, g: 11, b: 31, alpha: 1 } // Navy Dark: #060B1F
+        background: { r: 6, g: 11, b: 31, alpha: 1 }
       }
     })
     .composite([{ input: logoResized, gravity: 'center' }])
-    .toFormat('webp', { quality: 90 })
-    .toFile(path.join(publicAssetsDir, 'og-image.webp'));
+    .toFormat('png')
+    .toFile(path.join(__dirname, 'public/og-image.png'));
+
+    // Also save as public/assets/og-image.webp (using WebP format) to cover both possible paths
+    await sharp({
+      create: {
+        width: 1200,
+        height: 630,
+        channels: 4,
+        background: { r: 6, g: 11, b: 31, alpha: 1 }
+      }
+    })
+    .composite([{ input: logoResized, gravity: 'center' }])
+    .toFormat('webp', { quality: 85 })
+    .toFile(path.join(__dirname, 'public/assets/og-image.webp'));
       
-    console.log('Successfully generated optimized images, favicons, and OG banner!');
+    console.log('Successfully generated optimized images, favicons, OG images!');
   } catch (err) {
     console.error('Error generating images:', err);
   }
