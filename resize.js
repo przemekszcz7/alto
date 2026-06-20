@@ -22,7 +22,19 @@ async function resizeImage() {
       .toFormat('webp', { quality: 85 })
       .toFile(path.join(outputDir, 'loader_logo_800.webp'));
       
-    console.log('Successfully generated optimized images!');
+    // Generate public/favicon.png (512x512 PNG)
+    await sharp(inputPath)
+      .resize(512, 512)
+      .toFormat('png')
+      .toFile(path.join(__dirname, 'public/favicon.png'));
+      
+    // Generate public/favicon.ico (32x32 PNG/ICO)
+    await sharp(inputPath)
+      .resize(32, 32)
+      .toFormat('png')
+      .toFile(path.join(__dirname, 'public/favicon.ico'));
+      
+    console.log('Successfully generated optimized images, favicons!');
   } catch (err) {
     console.error('Error generating images:', err);
   }
