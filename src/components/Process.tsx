@@ -4,13 +4,13 @@ const steps = [
   {
     num: '01',
     title: 'Krótka, konkretna rozmowa',
-    desc: 'Poznajemy Twoje cele, klientów oraz dotychczasowe bolączki. My zadajemy precyzyjne pytania, Ty odpowiadasz — po ludzku, bez korporacyjnego żargonu, ankiet i marnowania czasu.',
+    desc: 'Poznajemy Twoje cele, klientów oraz dotychczasowe bolączki. My zadajemy precyzyjne pytania, Ty odpowiadasz - po ludzku, bez korporacyjnego żargonu, ankiet i marnowania czasu.',
     icon: MessageSquare
   },
   {
     num: '02',
     title: 'Autorski, elastyczny plan',
-    desc: 'Opracowujemy zestaw narzędzi i kanałów idealnie dopasowanych do Twojego budżetu i regionu działania. Bez lania wody — dostajesz jasne, namacalne rekomendacje z widocznym celem.',
+    desc: 'Opracowujemy zestaw narzędzi i kanałów idealnie dopasowanych do Twojego budżetu i regionu działania. Bez lania wody - dostajesz jasne, namacalne rekomendacje z widocznym celem.',
     icon: Compass
   },
   {

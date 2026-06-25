@@ -34,7 +34,7 @@ export default function Industries() {
           </div>
         </div>
 
-        {/* Minimalist Grid — Fine border hairline frame layout with no card background */}
+        {/* Minimalist Grid - Fine border hairline frame layout with no card background */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 border-t border-white/10 pt-16">
           {industries.map((ind, index) => (
             <div 
@@ -62,7 +62,7 @@ export default function Industries() {
               Nie widzisz swojej konkretnej branży na liście? <br className="hidden md:block"/>
               <a href="#kontakt" aria-label="Napisz do nas o swojej branży" className="text-[#C9A84C] hover:underline hover:text-white font-medium underline-offset-4 transition-colors">
                 Skontaktuj się z nami
-              </a> — z pełnym prawdopodobieństwem i tak potrafimy pomóc Twojemu biznesowi.
+              </a> - z pełnym prawdopodobieństwem i tak potrafimy pomóc Twojemu biznesowi.
             </p>
           </div>
         </div>

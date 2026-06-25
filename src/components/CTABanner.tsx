@@ -17,7 +17,7 @@ export default function CTABanner() {
               <span className="italic font-normal text-[#C9A84C]">My zajmiemy się resztą.</span>
             </h2>
             <p className="text-[#5C6B84] text-lg md:text-xl font-light font-body max-w-2xl mx-auto mb-12 leading-relaxed">
-              Ty zajmij się tym, co robisz najlepiej — świadczeniem usług i budowaniem zespołu. My weźmiemy pełną, codzienną odpowiedzialność za to, by świat dowiedział się o Twojej firmie.
+              Ty zajmij się tym, co robisz najlepiej - świadczeniem usług i budowaniem zespołu. My weźmiemy pełną, codzienną odpowiedzialność za to, by świat dowiedział się o Twojej firmie.
             </p>
             
             <a 

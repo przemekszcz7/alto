@@ -6,7 +6,7 @@ export default function WhyAlto() {
     pain: [
       { text: "Rozmowy z osobnym programistą, grafikiem i copywriterem" },
       { text: "Pilnowanie oraz płacenie 5 różnych faktur co miesiąc" },
-      { text: "Brak spójności — każdy realizuje własną wizję" },
+      { text: "Brak spójności - każdy realizuje własną wizję" },
       { text: "Zrzucanie winy: 'strona wolna, bo reklamy są źle ustawione'" },
     ],
     alto: [
@@ -75,7 +75,7 @@ export default function WhyAlto() {
             </div>
 
             <p className="mt-10 text-xs text-[#C9A84C]/80 font-mono uppercase tracking-widest font-semibold">
-              * Skoncentrowane uderzenie w rynek — spójnie i bez taryfy ulgowej.
+              * Skoncentrowane uderzenie w rynek - spójnie i bez taryfy ulgowej.
             </p>
           </div>
           

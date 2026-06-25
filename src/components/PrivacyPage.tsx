@@ -109,7 +109,7 @@ export default function PrivacyPage() {
             <div className="space-y-6">
               <div>
                 <h4 className="text-white font-medium text-base mb-1">Realizacja umowy i zlecenia</h4>
-                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. b RODO – przetwarzanie jest niezbędne do wykonania umowy</span>
+                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. b RODO - przetwarzanie jest niezbędne do wykonania umowy</span>
                 <ul className="space-y-1 font-light pl-4 list-disc text-sm">
                   <li>Realizacja zleceń reklamowych i marketingowych</li>
                   <li>Obsługa klienta i komunikacja projektowa</li>
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
 
               <div>
                 <h4 className="text-white font-medium text-base mb-1">Uzasadniony interes administratora</h4>
-                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. f RODO – prawnie uzasadniony interes administratora</span>
+                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes administratora</span>
                 <ul className="space-y-1 font-light pl-4 list-disc text-sm">
                   <li>Marketing bezpośredni usług własnych</li>
                   <li>Dochodzenie i obrona roszczeń</li>
@@ -130,7 +130,7 @@ export default function PrivacyPage() {
 
               <div>
                 <h4 className="text-white font-medium text-base mb-1">Zgoda Użytkownika</h4>
-                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. a RODO – zgoda osoby, której dane dotyczą</span>
+                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. a RODO - zgoda osoby, której dane dotyczą</span>
                 <ul className="space-y-1 font-light pl-4 list-disc text-sm">
                   <li>Wysyłanie newslettera i komunikatów marketingowych</li>
                   <li>Pliki cookies analityczne i marketingowe</li>
@@ -140,7 +140,7 @@ export default function PrivacyPage() {
 
               <div>
                 <h4 className="text-white font-medium text-base mb-1">Obowiązek prawny</h4>
-                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. c RODO – obowiązek prawny</span>
+                <span className="text-[10px] font-mono text-primary uppercase tracking-wider block mb-2">Podstawa: art. 6 ust. 1 lit. c RODO - obowiązek prawny</span>
                 <ul className="space-y-1 font-light pl-4 list-disc text-sm">
                   <li>Prowadzenie ksiąg rachunkowych</li>
                   <li>Wystawianie dokumentów księgowych</li>
@@ -231,7 +231,7 @@ export default function PrivacyPage() {
               Aby skorzystać z powyższych praw, prosimy o kontakt na adres e-mail: <a href="mailto:kontakt@altoagencja.pl" aria-label="Napisz do nas na adres kontakt@altoagencja.pl w celu wykonania swoich praw wynikających z RODO" className="text-primary hover:underline">kontakt@altoagencja.pl</a>. Odpowiemy w terminie do 30 dni od otrzymania wniosku.
             </p>
             <p className="font-light">
-              Masz również prawo wniesienia skargi do organu nadzorczego – Prezesa Urzędu Ochrony Danych Osobowych (UODO), ul. Stawki 2, 00-193 Warszawa, e-mail: <a href="mailto:kancelaria@uodo.gov.pl" aria-label="Napisz skargę do Urzędu Ochrony Danych Osobowych na adres kancelaria@uodo.gov.pl" className="text-primary hover:underline">kancelaria@uodo.gov.pl</a>.
+              Masz również prawo wniesienia skargi do organu nadzorczego - Prezesa Urzędu Ochrony Danych Osobowych (UODO), ul. Stawki 2, 00-193 Warszawa, e-mail: <a href="mailto:kancelaria@uodo.gov.pl" aria-label="Napisz skargę do Urzędu Ochrony Danych Osobowych na adres kancelaria@uodo.gov.pl" className="text-primary hover:underline">kancelaria@uodo.gov.pl</a>.
             </p>
           </section>
 

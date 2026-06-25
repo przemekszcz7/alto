@@ -86,7 +86,7 @@ export default function CookiesPage() {
                   Umożliwiają nam analizę sposobu korzystania ze strony, co pozwala na jej ulepszanie i dostosowywanie do potrzeb Użytkowników.
                 </p>
                 <ul className="space-y-1.5 font-light list-none pl-0">
-                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Google Analytics – analiza ruchu na stronie</li>
+                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Google Analytics - analiza ruchu na stronie</li>
                   <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Zbieranie danych statystycznych o odwiedzinach</li>
                   <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Identyfikacja najpopularniejszych treści</li>
                 </ul>
@@ -98,9 +98,9 @@ export default function CookiesPage() {
                   Służą do wyświetlania reklam dostosowanych do zainteresowań Użytkownika oraz mierzenia skuteczności kampanii reklamowych.
                 </p>
                 <ul className="space-y-1.5 font-light list-none pl-0">
-                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Google Ads – remarketing i targetowanie reklam</li>
-                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Facebook Pixel – śledzenie konwersji</li>
-                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> LinkedIn Insight Tag – kampanie B2B</li>
+                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Google Ads - remarketing i targetowanie reklam</li>
+                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> Facebook Pixel - śledzenie konwersji</li>
+                  <li className="flex items-center gap-2 text-sm text-text-muted/90"><span className="w-1 h-1 rounded-full bg-primary" /> LinkedIn Insight Tag - kampanie B2B</li>
                 </ul>
               </div>
 
@@ -141,10 +141,10 @@ export default function CookiesPage() {
               Na naszej stronie mogą być zamieszczane pliki cookies pochodzące od następujących podmiotów zewnętrznych:
             </p>
             <ul className="space-y-2 font-light text-sm pl-0 list-none">
-              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Google LLC:</strong> Google Analytics, Google Ads, reCAPTCHA – Stany Zjednoczone</li>
-              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Meta Platforms Ireland Ltd.:</strong> Facebook Pixel, Meta Business Suite – Irlandia</li>
-              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>LinkedIn Ireland Unlimited Company:</strong> LinkedIn Insight Tag – Irlandia</li>
-              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Hotjar Ltd.:</strong> Analiza zachowania Użytkowników – Malta</li>
+              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Google LLC:</strong> Google Analytics, Google Ads, reCAPTCHA - Stany Zjednoczone</li>
+              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Meta Platforms Ireland Ltd.:</strong> Facebook Pixel, Meta Business Suite - Irlandia</li>
+              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>LinkedIn Ireland Unlimited Company:</strong> LinkedIn Insight Tag - Irlandia</li>
+              <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /><strong>Hotjar Ltd.:</strong> Analiza zachowania Użytkowników - Malta</li>
             </ul>
             <p className="font-light pt-2 text-sm italic">
               Każdy z powyższych podmiotów stosuje własną politykę prywatności, z którą zachęcamy się zapoznać.
